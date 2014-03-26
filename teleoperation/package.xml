@@ -3,21 +3,15 @@
   <version>0.0.0</version>
   <description>Provides teleoperation using Cyber glove</description>
   <maintainer email="rui.defigueiredo@kustar.ac.ae">Rui P. de Figueiredo</maintainer>
-  <license>BSD</license>
-  <url type="repository">https://github.com/turtlebot/turtlebot_apps</url>
-  <url type="bugtracker">https://github.com/turtlebot/turtlebot_apps/issues</url>
+  <license>GNU</license>
   
   <author email="rui.defigueiredo@kustar.ac.ae">Tarek Taha and Rui P. de Figueiredo</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
   <build_depend>geometry_msgs</build_depend>
-  <build_depend>phantom_omni</build_depend>
-  <build_depend>dynamic_reconfigure</build_depend>
-  
-  <run_depend>roscpp</run_depend>
+
+  <run_depend>rospy</run_depend>
   <run_depend>geometry_msgs</run_depend>
-  <run_depend>phantom_omni</run_depend>
-  <run_depend>dynamic_reconfigure</run_depend>
 </package>
