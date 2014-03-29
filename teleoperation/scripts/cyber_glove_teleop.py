@@ -52,14 +52,14 @@ def read(old):
 if __name__=="__main__":
     
     rospy.init_node('cyber_glove_teleop')
-    pub = rospy.Publisher('~cmd_vel', Twist)
+    pub = rospy.Publisher('/RosAria/cmd_vel', Twist)
 
-    c=serial.Serial('/dev/ttyUSB0')
+    c=serial.Serial('/dev/ttyUSB1')
     c.baudrate=115200
     data=[]
     circular=[]
     f = open('data.txt', 'w')
-
+    r=rospy.Rate(10) # 10 hz
     while 1:
 
  	c.write("G")
@@ -70,6 +70,7 @@ if __name__=="__main__":
  	#f.write(str(t))
  	#f.write(' ')
  	count = 0
+        print data
  	for i in data:
 		count = count + i
 		#f.write(str(i))
@@ -115,4 +116,5 @@ if __name__=="__main__":
         twist.linear.x = control_linear_speed; twist.linear.y = 0; twist.linear.z = 0
         twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = control_angular_speed
         pub.publish(twist)
+        r.sleep()
     c.close()

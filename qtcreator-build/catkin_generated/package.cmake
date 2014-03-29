@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "navigation")
+set(navigation_MAINTAINER "Rui Pimentel de Figueiredo and Reem Ashour <rui.defigueiredo@kustar.ac.ae>")
+set(navigation_DEPRECATED "")
+set(navigation_VERSION "0.0.0")
+set(navigation_BUILD_DEPENDS "nav_msgs" "roscpp" "visualization_msgs" "sensor_msgs" "tf" "phantom_omni" "dynamic_reconfigure")
+set(navigation_RUN_DEPENDS "nav_msgs" "roscpp" "sensor_msgs" "tf" "phantom_omni" "dynamic_reconfigure")
+set(navigation_BUILDTOOL_DEPENDS "catkin")
