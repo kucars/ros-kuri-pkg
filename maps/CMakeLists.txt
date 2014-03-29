@@ -103,16 +103,16 @@ include_directories(
 # )
 
 ## Declare a cpp executable
-# add_executable(maps_node src/maps_node.cpp)
+ add_executable(path_publisher src/path_publisher.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(maps_node maps_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(maps_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(path_publisher
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
