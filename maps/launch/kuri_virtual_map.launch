@@ -1,0 +1,6 @@
+<launch>
+	<node pkg="tf" type="static_transform_publisher" name="left_bottom_front_corner" args="3 3 0 0 0 0 world left_bottom_front_corner 100" />
+	<node pkg="tf" type="static_transform_publisher" name="right_bottom_front_corner" args="3 -3 0 0 0 0 world right_bottom_front_corner 100" />
+	<node pkg="tf" type="static_transform_publisher" name="left_bottom_back_corner" args="-3 3 0 0 0 0 world left_bottom_back_corner 100" />
+	<node pkg="tf" type="static_transform_publisher" name="right_bottom_back_corner" args="-3 -3 0 0 0 0 world right_bottom_back_corner 100" />
+</launch>
