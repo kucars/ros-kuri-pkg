@@ -28,7 +28,7 @@ int main(int argc, char** argv){
     }
 
     geometry_msgs::PoseStamped odom;
-    tf::poseStampedTFToMsg (&transform, odom);
+    //tf::poseStampedTFToMsg (&transform, odom);
     path_msg.poses.push_back(odom);
     
     rate.sleep();
