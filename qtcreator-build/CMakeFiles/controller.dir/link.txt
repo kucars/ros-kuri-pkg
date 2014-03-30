@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC    -shared -Wl,-soname,libcontroller.so -o devel/lib/libcontroller.so CMakeFiles/controller.dir/src/Controller.cpp.o CMakeFiles/controller.dir/src/MasterController.cpp.o CMakeFiles/controller.dir/src/SlaveController.cpp.o 

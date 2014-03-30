@@ -1,8 +1,0 @@
-prefix=/home/rui/catkin_ws/src/ros-kuri-pkg/qtcreator-build/devel
-
-Name: navigation
-Description: Description of navigation
-Version: 0.0.0
-Cflags: -I/home/rui/catkin_ws/src/ros-kuri-pkg/qtcreator-build/devel/include
-Libs: -L/home/rui/catkin_ws/src/ros-kuri-pkg/qtcreator-build/devel/lib 
-Requires: 
