@@ -2,6 +2,7 @@
 #include <tf/transform_listener.h>
 #include <tf/transform_datatypes.h>
 #include <nav_msgs/Path.h>
+#include <tf_conversions/tf_eigen.h>
 
 int main(int argc, char** argv){
   ros::init(argc, argv, "my_tf_listener");
@@ -27,7 +28,7 @@ int main(int argc, char** argv){
     }
 
     geometry_msgs::PoseStamped odom;
-    tf::poseStampedTFToMsg (transform, odom);
+    tf::poseStampedTFToMsg (&transform, odom);
     path_msg.poses.push_back(odom);
     
     rate.sleep();

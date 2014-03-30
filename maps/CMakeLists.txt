@@ -8,6 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   roscpp
   tf
+  tf_conversions
 )
 
 ## System dependencies are found with CMake's conventions
