@@ -105,7 +105,7 @@ include_directories(
 
 ## Declare a cpp executable
  add_executable(path_publisher src/path_publisher.cpp)
-
+ add_executable(obstacle_listener src/obstacle_listener.cpp)
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(maps_node maps_generate_messages_cpp)
@@ -114,7 +114,7 @@ include_directories(
 target_link_libraries(path_publisher
   ${catkin_LIBRARIES}
 )
-
+target_link_libraries(obstacle_listener ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############
