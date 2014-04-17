@@ -1,6 +1,5 @@
 #include <ros/ros.h>
 #include <tf/transform_listener.h>
-//#include <turtlesim/Velocity.h>
 #include <geometry_msgs/Twist.h> 
 #include <turtlesim/Spawn.h>
 #include "sensor_msgs/PointCloud.h"
@@ -16,7 +15,7 @@ int main(int argc, char** argv){
   ros::Publisher cloud_pub = node.advertise<sensor_msgs::PointCloud>("cloud", 50);
 
   tf::TransformListener listener;
-  int count = 0;
+
   ros::Rate rate(10.0);
    std::vector<std::string> list;
    list.clear();
@@ -39,9 +38,9 @@ int main(int argc, char** argv){
        listener.lookupTransform("/Pioneer3AT/base_link",list[i], ros::Time(0), transform);
 
        geometry_msgs::Point32 point;
-       point.x =transform.getOrigin().x();// 1 + count;
-       point.y =transform.getOrigin().y();// 2 + count;
-       point.z =transform.getOrigin().z();// 3 + count;
+       point.x =transform.getOrigin().x();
+       point.y =transform.getOrigin().y();
+       point.z =transform.getOrigin().z();
        cloud.points.push_back(point);
 
 
@@ -51,14 +50,7 @@ int main(int argc, char** argv){
        intensity_channel.values.push_back(1.0);
        cloud.channels.push_back(intensity_channel);
       }
-
-
-      
       cloud_pub.publish(cloud);
-
-       ++count;
-
-
     }
     catch (tf::TransformException ex){
       ROS_ERROR("%s",ex.what());
