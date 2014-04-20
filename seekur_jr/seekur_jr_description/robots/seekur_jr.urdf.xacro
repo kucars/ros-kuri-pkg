@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot name="seekur_jr" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+
+  <!-- Import all common definitions -->
+  <xacro:include filename="$(find seekur_jr_description)/urdf/common.xacro" />
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find seekur_jr_description)/urdf/seekur_jr.gazebo" />
+
+
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+<!--  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 2.0"/>
+  </joint>-->
+
+  <!-- Joint that links the terabot-s arm to the seekur jr robot -->
+  <!--<joint name="base_to_arm" type="fixed">
+    <parent link="base_link"/>
+    <child link="arm_base_link"/>
+    <origin xyz="0.229108 0 0.4953"/>
+  </joint>-->
+
+
+  <xacro:include filename="$(find seekur_jr_description)/urdf/seekur_jr.xacro" />
+  <xacro:include filename="$(find seekur_jr_description)/urdf/sensors/sensors.xacro" />
+  <!--<xacro:include filename="$(find seekur_jr_description)/urdf/arm/arm.urdf.xacro" />-->
+  <!--<xacro:include filename="$(find seekur_jr_description)/urdf/gripper/gripper.urdf.xacro" />
+
+  <xacro:pr2_gripper_v0 reflect="-1.0" side="r" parent="gripper_link"
+               screw_reduction="${4.0/1000.0}"
+               gear_ratio="${(729.0/25.0)*(22.0/16.0)}"
+               theta0="${3.6029*M_PI/180.0}"
+               phi0="${29.7089*M_PI/180.0}"
+               t0="${-0.1914/1000.0}"
+               L0="${37.5528/1000.0}"
+               h="${0.0/1000.0}"
+               a="${68.3698/1000.0}"
+               b="${43.3849/1000.0}"
+               r="${91.5/1000.0}" >
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:pr2_gripper_v0>-->
+  <!--<xacro:include filename="$(find seekur_jr_description)/urdf/sensors/sensors.xacro" />-->
+</robot>
