@@ -16,5 +16,5 @@
     <dynamics damping="0.001"/>
   </joint>
 
-  <xacro:include filename="$(find terabot_description)/urdf/terabot.urdf.xacro" />
+  <xacro:include filename="$(find terabot_description)/urdf/terabot.xacro" />
 </robot>

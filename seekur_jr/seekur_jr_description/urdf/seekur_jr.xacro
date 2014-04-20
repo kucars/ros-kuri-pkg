@@ -4,7 +4,7 @@
   <property name="pi" value="3.1415926535897931" />
   <property name="wheel_z_offset" value="0.1" />
 
-  <link name="seekur_base_link" >
+  <link name="base_link" >
     <visual>    
       <origin xyz="0 0 0" rpy="${pi/2} 0 ${-pi/2}" />
       <geometry>
@@ -29,7 +29,7 @@
 
   <joint name="seekur_base_to_top_joint" type="fixed">
       <origin xyz="0 0 0.406" rpy="0 0 0" /> <!-- 386 + 20 plaque -->
-      <parent link="seekur_base_link"/>
+      <parent link="base_link"/>
       <child link="seekur_top_link"/>
   </joint>
 

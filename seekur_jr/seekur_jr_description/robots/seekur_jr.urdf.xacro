@@ -24,7 +24,8 @@
   </joint>-->
 
 
-  <xacro:include filename="$(find seekur_jr_description)/urdf/seekur_jr.urdf.xacro" />
+  <xacro:include filename="$(find seekur_jr_description)/urdf/seekur_jr.xacro" />
+  <xacro:include filename="$(find seekur_jr_description)/urdf/sensors/sensors.xacro" />
   <!--<xacro:include filename="$(find seekur_jr_description)/urdf/arm/arm.urdf.xacro" />-->
   <!--<xacro:include filename="$(find seekur_jr_description)/urdf/gripper/gripper.urdf.xacro" />
 

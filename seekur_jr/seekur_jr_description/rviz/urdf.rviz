@@ -69,17 +69,8 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         forearm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        gripper_l_finger_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        seekur_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -129,10 +120,6 @@ Visualization Manager:
           Value: true
         forearm_link:
           Value: true
-        gripper_l_finger_link:
-          Value: true
-        seekur_base_link:
-          Value: true
         seekur_top_link:
           Value: true
         shoulder_link:
@@ -152,16 +139,14 @@ Visualization Manager:
       Show Names: true
       Tree:
         base_link:
-          seekur_base_link:
-            seekur_top_link:
-              arm_base_link:
-                shoulder_link:
-                  forearm_link:
-                    upper_arm_link:
-                      wrist_pitch_link:
-                        wrist_roll_link:
-                          gripper_l_finger_link:
-                            {}
+          seekur_top_link:
+            arm_base_link:
+              shoulder_link:
+                forearm_link:
+                  upper_arm_link:
+                    wrist_pitch_link:
+                      wrist_roll_link:
+                        {}
           sonar_frame:
             {}
       Update Interval: 0
@@ -190,17 +175,17 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 7.41285
+      Distance: 3.67393
       Focal Point:
         X: 0
         Y: 0
         Z: 0
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.514798
+      Pitch: 0.649798
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.89722
+      Yaw: 1.21404
     Saved: ~
 Window Geometry:
   Displays:

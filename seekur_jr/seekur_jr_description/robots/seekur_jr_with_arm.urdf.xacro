@@ -16,15 +16,7 @@
     <origin xyz="0 0 2.0"/>
   </joint>-->
 
-  <!-- Joint that links the terabot-s arm to the seekur jr robot -->
-  <link name="base_link">
-  </link>
 
-  <joint name="base_to_seekur" type="fixed">
-    <parent link="base_link"/>
-    <child link="seekur_base_link"/>
-    <origin xyz="0 0 0"/>
-  </joint>
 
   <joint name="base_to_arm" type="fixed">
     <parent link="seekur_top_link"/>
@@ -33,7 +25,7 @@
   </joint>
 
 
-  <xacro:include filename="$(find seekur_jr_description)/urdf/seekur_jr.urdf.xacro" />
+  <xacro:include filename="$(find seekur_jr_description)/urdf/seekur_jr.xacro" />
   <xacro:include filename="$(find seekur_jr_description)/urdf/sensors/sensors.xacro" />
-  <xacro:include filename="$(find terabot_description)/urdf/terabot.urdf.xacro" />
+  <xacro:include filename="$(find terabot_description)/urdf/terabot.xacro" />
 </robot>

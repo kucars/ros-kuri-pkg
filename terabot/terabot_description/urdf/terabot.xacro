@@ -60,6 +60,11 @@
     </visual>
 
     <collision>
+      <origin xyz="0 0 ${-(80/2)*BASE}" rpy="0 ${-pi/2} ${pi/2}" />
+      <geometry>
+        <mesh filename="package://terabot_description/meshes/shoulder.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="Blue"/>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -90,6 +95,11 @@
     </visual>
 
     <collision>
+      <origin xyz="${-(229/2)*BASE+forearm_link_x_offset} ${-(229/2)*BASE+forearm_link_y_offset} 0" rpy="0 0 ${PI/4}" />
+      <geometry>
+        <mesh filename="package://terabot_description/meshes/forearm.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="Blue"/>
     </collision>
 
     <inertial>
@@ -198,7 +208,7 @@
     </inertial>
   </link>
 
-  <joint name="gripper_l_finger_joint" type="fixed">
+  <!--	<joint name="gripper_l_finger_joint" type="fixed">
     <origin xyz="${gripper_l_finger_joint_x_offset} 0 0" rpy="0 -${PI/2} ${-PI/2}"/>
     <limit effort="1000.0" lower="${-170*(PI/180)}" upper="${170*(PI/180)}" velocity="0.5"/>
     <parent link="wrist_roll_link"/>
@@ -221,7 +231,7 @@
 	  iyy="1.0" iyz="0.0"
 	  izz="1.0"/>
     </inertial>
-  </link>
+  </link>-->
 
 
   <transmission name="tran1">
