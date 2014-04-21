@@ -1,0 +1,188 @@
+mitsubishi_barrett:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 20.0 
+  
+  # Mitsubishi Arm Position Controllers ---------------------------------------
+  mitsubishi_joint1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: j1
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  mitsubishi_joint2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: j2
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  mitsubishi_joint3_position_controller:
+    type: position_controllers/JointPositionController
+    joint: j3
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  mitsubishi_joint4_position_controller:
+    type: position_controllers/JointPositionController
+    joint: j4
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  mitsubishi_joint5_position_controller:
+    type: position_controllers/JointPositionController
+    joint: j5
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  mitsubishi_joint6_position_controller:
+    type: position_controllers/JointPositionController
+    joint: j6
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+  # Barrett Hand Position Controllers ---------------------------------------
+  barrett_joint1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: finger_1_med_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: finger_2_med_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint3_position_controller:
+    type: position_controllers/JointPositionController
+    joint: finger_3_med_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint4_position_controller:
+    type: position_controllers/JointPositionController
+    joint: finger_1_prox_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint5_position_controller:
+    type: position_controllers/JointPositionController
+    joint: finger_2_prox_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint6_position_controller:
+    type: position_controllers/JointPositionController
+    joint: finger_1_dist_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint7_position_controller:
+    type: position_controllers/JointPositionController
+    joint: finger_2_dist_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint8_position_controller:
+    type: position_controllers/JointPositionController
+    joint: finger_3_dist_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+
+  # Trajectory Controllers ---------------------------------------
+  mitsubishi_barrett_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - j1
+      - j2
+      - j3
+      - j4
+      - j5
+      - j6
+      - finger_1_med_joint
+      - finger_2_med_joint
+      - finger_3_med_joint
+      - finger_1_prox_joint
+      - finger_2_prox_joint
+      - finger_1_dist_joint
+      - finger_2_dist_joint
+      - finger_3_dist_joint
+    state_publish_rate: 20.0
+    action_monitor_rate: 20.0
+    constraints:
+      goal_time: 100.0                   # Override default
+      j1:
+        trajectory: 0.01
+      j2:
+        trajectory: 0.01
+      j3:
+        trajectory: 0.01
+      j4:
+        trajectory: 0.01
+      j5:
+        trajectory: 0.01
+      j6:
+        trajectory: -1.0
+      finger_1_med_joint:
+        trajectory: 0.01
+      finger_2_med_joint:
+        trajectory: 0.01
+      finger_3_med_joint:
+        trajectory: 0.01
+      finger_1_prox_joint:
+        trajectory: 0.01
+      finger_2_prox_joint:
+        trajectory: -1.0
+      finger_1_dist_joint:
+        trajectory: -1.0
+      finger_2_dist_joint:
+        trajectory: -1.0
+      finger_3_dist_joint:
+        trajectory: -1.0
+
+
+  mitsubishi_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - j1
+      - j2
+      - j3
+      - j4
+      - j5
+      - j6
+    state_publish_rate: 20.0
+    action_monitor_rate: 20.0
+    constraints:
+      goal_time: 100.0                   # Override default
+      j1:
+        trajectory: 0.01
+      j2:
+        trajectory: 0.01
+      j3:
+        trajectory: 0.01
+      j4:
+        trajectory: 0.01
+      j5:
+        trajectory: 0.01
+      j6:
+        trajectory: -1.0
+
+
+  barrett_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - finger_1_med_joint
+      - finger_2_med_joint
+      - finger_3_med_joint
+      - finger_1_prox_joint
+      - finger_2_prox_joint
+      - finger_1_dist_joint
+      - finger_2_dist_joint
+      - finger_3_dist_joint
+    state_publish_rate: 20.0
+    action_monitor_rate: 20.0
+    constraints:
+      goal_time: 100.0                   # Override default
+      finger_1_med_joint:
+        trajectory: 0.01
+      finger_2_med_joint:
+        trajectory: 0.01
+      finger_3_med_joint:
+        trajectory: 0.01
+      finger_1_prox_joint:
+        trajectory: 0.01
+      finger_2_prox_joint:
+        trajectory: -1.0
+      finger_1_dist_joint:
+        trajectory: -1.0
+      finger_2_dist_joint:
+        trajectory: -1.0
+      finger_3_dist_joint:
+        trajectory: -1.0
+
+
+ 
+
+
+
+
+ 
+
+
+

@@ -1,0 +1,13 @@
+<launch>
+  <!-- Load mitsubishi arm hardware interface and controller manager -->
+  <include file="$(find mitsubishi_barrett_hardware_interface)/launch/mitsubishi_barrett_hardware_interface.launch"/>
+
+  <!-- Load mitsubishi arm controllers -->
+  <include file="$(find mitsubishi_barrett_control)/launch/mitsubishi_barrett_control.launch"/>
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <include file="$(find mitsubishi_barrett_config)/launch/moveit.launch"/>
+
+  <node name="static_environment" pkg="mitsubishi_arm_move" type="static_environment" />
+</launch>
+

@@ -1,0 +1,11 @@
+<launch>
+  <arg name="model" default="$(find mitsubishi_barrett_description)/robots/mitsubishi_barrett.urdf.xacro"/>
+  <arg name="gui" default="False" />
+  <param name="/mitsubishi_barrett/robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+  <node ns="/mitsubishi_barrett" name="mitsubishi_barrett_hardware_interface" pkg="mitsubishi_barrett_hardware_interface" type="mitsubishi_barrett_hardware_interface_node" respawn="false" output="screen"/>
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <node ns="/mitsubishi_barrett" name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+</launch>

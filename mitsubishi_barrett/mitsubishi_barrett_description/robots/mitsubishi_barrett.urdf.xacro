@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="mitsubishi_barrett">
+  
+
+  <joint name="mitsubishi_barrett_joint" type="fixed">
+    <parent link="end_effector"/>
+    <child link="barrett_base_link"/>
+  </joint>
+
+  <!-- Mitsubishi arm   -->  
+  <xacro:include filename="$(find mitsubishi_arm_description)/urdf/mitsubishi_rv_6sdl_arm.xacro" />
+
+  <!-- Barrett hand   -->  
+  <xacro:include filename="$(find barrett_hand_description)/urdf/barrett_hand.xacro" />
+</robot>
+
