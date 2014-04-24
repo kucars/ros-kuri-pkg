@@ -89,6 +89,8 @@ int main(int argc, char** argv)
     std::cout << "DONE" << std::endl;
     //#endif // OWDSIM
 
+
+
     ros::AsyncSpinner spinner(4);
     spinner.start();
     while (ros::ok())

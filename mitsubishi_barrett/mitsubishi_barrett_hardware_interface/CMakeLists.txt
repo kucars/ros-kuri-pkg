@@ -10,6 +10,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
 )
 
+find_package(Eigen REQUIRED)
+
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES mitsubishi_barrett_hardware_interface
@@ -24,7 +26,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS} ${Eigen_INCLUDE_DIRS})
 
 add_library(mitsubishi_barrett_hardware_interface src/MitsubishiBarrettHardwareInterface.cpp)
 add_executable(mitsubishi_barrett_hardware_interface_node src/Robot.cpp)

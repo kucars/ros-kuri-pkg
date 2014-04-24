@@ -1,5 +1,6 @@
 #include <barrett_hand_hardware_interface/BarrettHandHardwareInterface.h>
 #include <mitsubishi_arm_hardware_interface/MitsubishiArmInterface.h>
+#include <Eigen/Eigen>
 
 class MitsubishiBarrettHardwareInterface : public hardware_interface::RobotHW
 {
@@ -10,10 +11,6 @@ public:
     void readHW();
     void writeHW();
 
-    void readTactile()
-    {
-        //bus->tactile_get_data
-    }
     int USB;
     boost::shared_ptr<OWD::WamDriver> wamdriver;
 
@@ -28,7 +25,6 @@ private:
     hardware_interface::PositionJointInterface jnt_pos_interface;
     hardware_interface::VelocityJointInterface jnt_vel_interface;
     hardware_interface::EffortJointInterface jnt_eff_interface;
-
 
     std::vector<double> pos;
     std::vector<double> vel;
@@ -47,13 +43,11 @@ private:
 
     void readBarrettPosition();
     void readBarrettTorque();
-    void readBarrettPositionAndComputeVelocity(ros::Duration &  period);
+    void readBarrettPositionAndComputeVelocity();
 
     void writeBarrettPosition();
     void writeBarrettVelocity();
     void writeBarrettEffort();
-
-
 
     ros::NodeHandle n;
     ros::Time prev_time;
@@ -61,9 +55,6 @@ private:
     // Mitsubishi COM
     struct termios tty;
 
-
-    boost::shared_ptr<BHD_280> bhd;
-    //    boost::shared_ptr<FT> ft;
     boost::shared_ptr<Tactile> tact;
 
     // OWD parameters
@@ -78,4 +69,7 @@ private:
     int tactile_pub_freq;
     bool tactile;
 
+    // TACTILE SENSORS
+    ros::Timer ft_timer;
+    //std::vector<float*> tactile_sensors;
 };

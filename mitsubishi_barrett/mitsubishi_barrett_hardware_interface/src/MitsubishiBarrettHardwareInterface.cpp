@@ -113,47 +113,58 @@ MitsubishiBarrettHardwareInterface::MitsubishiBarrettHardwareInterface(const int
     registerInterface(&jnt_pos_interface);
 
     // connect and register the velocity interface
-    hardware_interface::JointHandle vel_handle_j1(jnt_state_interface.getHandle("finger_1_med_joint"), &vel_cmd[0]);
-    jnt_vel_interface.registerHandle(vel_handle_j1);
+    hardware_interface::JointHandle barrett_vel_handle_j1(jnt_state_interface.getHandle("finger_1_med_joint"), &vel_cmd[0+mitsubishi_joint_number]);
+    jnt_vel_interface.registerHandle(barrett_vel_handle_j1);
 
-    hardware_interface::JointHandle vel_handle_j2(jnt_state_interface.getHandle("finger_2_med_joint"), &vel_cmd[1]);
-    jnt_vel_interface.registerHandle(vel_handle_j2);
+    hardware_interface::JointHandle barrett_vel_handle_j2(jnt_state_interface.getHandle("finger_2_med_joint"), &vel_cmd[1+mitsubishi_joint_number]);
+    jnt_vel_interface.registerHandle(barrett_vel_handle_j2);
 
-    hardware_interface::JointHandle vel_handle_j3(jnt_state_interface.getHandle("finger_3_med_joint"), &vel_cmd[2]);
-    jnt_vel_interface.registerHandle(vel_handle_j3);
+    hardware_interface::JointHandle barrett_vel_handle_j3(jnt_state_interface.getHandle("finger_3_med_joint"), &vel_cmd[2+mitsubishi_joint_number]);
+    jnt_vel_interface.registerHandle(barrett_vel_handle_j3);
 
-    hardware_interface::JointHandle vel_handle_j4(jnt_state_interface.getHandle("finger_1_prox_joint"), &vel_cmd[3]);
-    jnt_vel_interface.registerHandle(vel_handle_j4);
+    hardware_interface::JointHandle barrett_vel_handle_j4(jnt_state_interface.getHandle("finger_1_prox_joint"), &vel_cmd[3+mitsubishi_joint_number]);
+    jnt_vel_interface.registerHandle(barrett_vel_handle_j4);
 
-    hardware_interface::JointHandle vel_handle_j5(jnt_state_interface.getHandle("finger_2_prox_joint"), &vel_cmd[4]);
-    jnt_vel_interface.registerHandle(vel_handle_j5);
+    hardware_interface::JointHandle barrett_vel_handle_j5(jnt_state_interface.getHandle("finger_2_prox_joint"), &vel_cmd[4+mitsubishi_joint_number]);
+    jnt_vel_interface.registerHandle(barrett_vel_handle_j5);
+
+    hardware_interface::JointHandle barrett_vel_handle_j6(jnt_state_interface.getHandle("finger_1_dist_joint"), &vel_cmd[5+mitsubishi_joint_number]);
+    jnt_vel_interface.registerHandle(barrett_vel_handle_j6);
+
+    hardware_interface::JointHandle barrett_vel_handle_j7(jnt_state_interface.getHandle("finger_2_dist_joint"), &vel_cmd[6+mitsubishi_joint_number]);
+    jnt_vel_interface.registerHandle(barrett_vel_handle_j7);
+
+    hardware_interface::JointHandle barrett_vel_handle_j8(jnt_state_interface.getHandle("finger_3_dist_joint"), &vel_cmd[7+mitsubishi_joint_number]);
+    jnt_vel_interface.registerHandle(barrett_vel_handle_j8);
+
+
 
     registerInterface(&jnt_vel_interface);
 
     // connect and register the effort interface
-    hardware_interface::JointHandle eff_handle_j1(jnt_state_interface.getHandle("finger_1_med_joint"), &eff_cmd[0]);
-    jnt_eff_interface.registerHandle(eff_handle_j1);
+    hardware_interface::JointHandle barrett_eff_handle_j1(jnt_state_interface.getHandle("finger_1_med_joint"), &eff_cmd[0+mitsubishi_joint_number]);
+    jnt_eff_interface.registerHandle(barrett_eff_handle_j1);
 
-    hardware_interface::JointHandle eff_handle_j2(jnt_state_interface.getHandle("finger_2_med_joint"), &eff_cmd[1]);
-    jnt_eff_interface.registerHandle(eff_handle_j2);
+    hardware_interface::JointHandle barrett_eff_handle_j2(jnt_state_interface.getHandle("finger_2_med_joint"), &eff_cmd[1+mitsubishi_joint_number]);
+    jnt_eff_interface.registerHandle(barrett_eff_handle_j2);
 
-    hardware_interface::JointHandle eff_handle_j3(jnt_state_interface.getHandle("finger_3_med_joint"), &eff_cmd[2]);
-    jnt_eff_interface.registerHandle(eff_handle_j3);
+    hardware_interface::JointHandle barrett_eff_handle_j3(jnt_state_interface.getHandle("finger_3_med_joint"), &eff_cmd[2+mitsubishi_joint_number]);
+    jnt_eff_interface.registerHandle(barrett_eff_handle_j3);
 
-    hardware_interface::JointHandle eff_handle_j4(jnt_state_interface.getHandle("finger_1_prox_joint"), &eff_cmd[3]);
-    jnt_eff_interface.registerHandle(eff_handle_j4);
+    hardware_interface::JointHandle barrett_eff_handle_j4(jnt_state_interface.getHandle("finger_1_prox_joint"), &eff_cmd[3+mitsubishi_joint_number]);
+    jnt_eff_interface.registerHandle(barrett_eff_handle_j4);
 
-    hardware_interface::JointHandle eff_handle_j5(jnt_state_interface.getHandle("finger_2_prox_joint"), &eff_cmd[4]);
-    jnt_eff_interface.registerHandle(eff_handle_j5);
+    hardware_interface::JointHandle barrett_eff_handle_j5(jnt_state_interface.getHandle("finger_2_prox_joint"), &eff_cmd[4+mitsubishi_joint_number]);
+    jnt_eff_interface.registerHandle(barrett_eff_handle_j5);
 
-    hardware_interface::JointHandle eff_handle_j6(jnt_state_interface.getHandle("finger_1_dist_joint"), &eff_cmd[3]);
-    jnt_eff_interface.registerHandle(eff_handle_j6);
+    hardware_interface::JointHandle barrett_eff_handle_j6(jnt_state_interface.getHandle("finger_1_dist_joint"), &eff_cmd[5+mitsubishi_joint_number]);
+    jnt_eff_interface.registerHandle(barrett_eff_handle_j6);
 
-    hardware_interface::JointHandle eff_handle_j7(jnt_state_interface.getHandle("finger_2_dist_joint"), &eff_cmd[4]);
-    jnt_eff_interface.registerHandle(eff_handle_j7);
+    hardware_interface::JointHandle barrett_eff_handle_j7(jnt_state_interface.getHandle("finger_2_dist_joint"), &eff_cmd[6+mitsubishi_joint_number]);
+    jnt_eff_interface.registerHandle(barrett_eff_handle_j7);
 
-    hardware_interface::JointHandle eff_handle_j8(jnt_state_interface.getHandle("finger_3_dist_joint"), &eff_cmd[4]);
-    jnt_eff_interface.registerHandle(eff_handle_j8);
+    hardware_interface::JointHandle barrett_eff_handle_j8(jnt_state_interface.getHandle("finger_3_dist_joint"), &eff_cmd[7+mitsubishi_joint_number]);
+    jnt_eff_interface.registerHandle(barrett_eff_handle_j8);
 
     registerInterface(&jnt_eff_interface);
 
@@ -229,14 +240,8 @@ MitsubishiBarrettHardwareInterface::MitsubishiBarrettHardwareInterface(const int
     }
 
 
-
-    bhd=boost::shared_ptr<BHD_280>(new BHD_280(wamdriver->bus));
-    tact=boost::shared_ptr<Tactile>(new Tactile(wamdriver->bus));
-
-
     //INITIALIZE
-
-    readBarrettPosition();
+    readHW();
 
     prev_time=ros::Time::now();
 
@@ -252,6 +257,14 @@ MitsubishiBarrettHardwareInterface::MitsubishiBarrettHardwareInterface(const int
     }
 
     std::cout << "Init done!" << '\n';
+
+    //tactile_sensors.resize(4);
+    /*for(int i=0; i<tactile_sensors.size();++i)
+    {
+        tactile_sensors[i].resize(24);
+    }*/
+
+    tact=boost::shared_ptr<Tactile>(new Tactile(wamdriver->bus));
 
     return;
 }
@@ -274,10 +287,6 @@ void MitsubishiBarrettHardwareInterface::writeHW()
 
 void MitsubishiBarrettHardwareInterface::readMitsubishiHW()
 {
-
-    //boost::mutex::scoped_lock lock(io_mutex);
-    //std::cout << "reading" << std::endl;
-
     // WRITE READ to robot
     unsigned char cmd_msg[] = "1\r\n";
     int n_written = 0;
@@ -342,7 +351,6 @@ void MitsubishiBarrettHardwareInterface::readMitsubishiHW()
     }
     // END READ
 
-
     char dummy_char;
     convertor >> dummy_char
               >> pos[0]
@@ -360,13 +368,11 @@ void MitsubishiBarrettHardwareInterface::readMitsubishiHW()
               >> pos[6]
               >> dummy_char;
 
-
     // convert to radians and add to state
-    for(int i=0; i< pos.size(); ++i)
+    for(int i=0; i< mitsubishi_joint_number; ++i)
     {
         pos[i]=pos[i]*(DEG_TO_RAD);
     }
-
 
     eff[0]=0.0;
     eff[1]=0.0;
@@ -382,6 +388,7 @@ void MitsubishiBarrettHardwareInterface::readMitsubishiHW()
     vel[4]=0.0;
     vel[5]=0.0;
 
+    ft_timer = n.createTimer(ros::Rate(ft_pub_freq).expectedCycleTime(), &FT::Pump, ft);
 }
 
 
@@ -472,17 +479,15 @@ void MitsubishiBarrettHardwareInterface::writeMitsubishiHW()
 
 void MitsubishiBarrettHardwareInterface::readBarrettHW()
 {
-    ros::Time curr_time=ros::Time::now();
-    ros::Duration period = curr_time-prev_time;
-    readBarrettPositionAndComputeVelocity(period);
+    readBarrettPositionAndComputeVelocity();
     readBarrettTorque();
-    prev_time=curr_time;
 }
 
 void MitsubishiBarrettHardwareInterface::writeBarrettHW()
 {
-    writeBarrettPosition();
-    //writeVelocity();
+    // HOW TO HAVE SEVERAL INTERFACES AT THE SAME TIME?
+    // writeBarrettPosition();
+    writeBarrettVelocity();
 }
 
 void MitsubishiBarrettHardwareInterface::readBarrettPosition()
@@ -500,17 +505,27 @@ void MitsubishiBarrettHardwareInterface::readBarrettPosition()
     //wamdriver->bus->hand_get_outer_links(pos[5],pos[6],pos[7]);
 }
 
-void MitsubishiBarrettHardwareInterface::readBarrettPositionAndComputeVelocity(ros::Duration &  period)
+void MitsubishiBarrettHardwareInterface::readBarrettPositionAndComputeVelocity()
 {
+    ros::Time curr_time=ros::Time::now();
+    ros::Duration period = curr_time-prev_time;
     std::vector<double> prev_pos=pos;
-    readBarrettPosition();
-    //std::cout << period << std::endl;
+
     for(int i=mitsubishi_joint_number;i<joint_number;++i)
     {
-        vel[i]=(pos[i]-prev_pos[i])/period.toSec();
+        std::cout << "previous_pos: "<<i <<" " <<pos[i]<<std::endl;
     }
 
+    readBarrettPosition();
+    std::cout << period << std::endl;
+    for(int i=mitsubishi_joint_number;i<joint_number;++i)
+    {
+        std::cout << "current_pos: "<<i <<" " <<pos[i]<<std::endl;
+        vel[i]=(pos[i]-prev_pos[i])/period.toSec();
+    }
+    prev_time=curr_time;
 }
+
 void MitsubishiBarrettHardwareInterface::readBarrettTorque()
 {
     //std::cout << "read torque:" << std::endl;
@@ -586,8 +601,6 @@ void MitsubishiBarrettHardwareInterface::writeBarrettEffort()
     write_cmd.push_back(eff_cmd[3]);
     wamdriver->bus->hand_torque(write_cmd);
 }
-
-
 
 
 

@@ -3,7 +3,7 @@
   <rosparam file="$(find mitsubishi_barrett_control)/config/mitsubishi_barrett_control.yaml" command="load"/>
 
   <!-- load the controllers -->
-  <!--<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/mitsubishi_barrett" args="joint_state_controller 
+  <!--<node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller 
 	mitsubishi_joint1_position_controller 
 	mitsubishi_joint2_position_controller 
 	mitsubishi_joint3_position_controller 
@@ -19,5 +19,21 @@
         barrett_joint7_position_controller
         barrett_joint8_position_controller"/>-->
 
-  <node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller mitsubishi_trajectory_controller barrett_trajectory_controller"/>
+  <node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller 
+	mitsubishi_joint1_position_controller 
+	mitsubishi_joint2_position_controller 
+	mitsubishi_joint3_position_controller 
+	mitsubishi_joint4_position_controller 
+	mitsubishi_joint5_position_controller
+	mitsubishi_joint6_position_controller
+        barrett_joint1_velocity_controller
+        barrett_joint2_velocity_controller
+        barrett_joint3_velocity_controller
+        barrett_joint4_velocity_controller
+        barrett_joint5_velocity_controller
+        barrett_joint6_velocity_controller
+        barrett_joint7_velocity_controller
+        barrett_joint8_velocity_controller"/>
+
+  <!--<node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller mitsubishi_trajectory_controller barrett_trajectory_controller"/>-->
 </launch>

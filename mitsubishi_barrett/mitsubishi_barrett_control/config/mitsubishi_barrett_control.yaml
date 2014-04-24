@@ -64,6 +64,41 @@ mitsubishi_barrett:
     joint: finger_3_dist_joint
     pid: {p: 1.0, i: 0.0, d: 0.0}
 
+  # Barrett Hand Velocity Controllers ---------------------------------------
+  barrett_joint1_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: finger_1_med_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint2_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: finger_2_med_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint3_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: finger_3_med_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint4_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: finger_1_prox_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint5_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: finger_2_prox_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint6_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: finger_1_dist_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint7_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: finger_2_dist_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+  barrett_joint8_velocity_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: finger_3_dist_joint
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+
 
   # Trajectory Controllers ---------------------------------------
   mitsubishi_barrett_trajectory_controller:
