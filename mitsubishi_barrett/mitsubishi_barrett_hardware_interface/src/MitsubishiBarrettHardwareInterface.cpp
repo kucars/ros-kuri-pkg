@@ -211,6 +211,8 @@ MitsubishiBarrettHardwareInterface::MitsubishiBarrettHardwareInterface(const int
         std::cout << "connected successfuly" <<std::endl;
     usleep(10000);
 
+    char buf [256];
+    read( USB, &buf, 1); // CLEAN BUFFER
     readMitsubishiHW();
 
     std::cout << "mitsubishi initialized" << std::endl;
@@ -388,7 +390,7 @@ void MitsubishiBarrettHardwareInterface::readMitsubishiHW()
     vel[4]=0.0;
     vel[5]=0.0;
 
-    ft_timer = n.createTimer(ros::Rate(ft_pub_freq).expectedCycleTime(), &FT::Pump, ft);
+    //ft_timer = n.createTimer(ros::Rate(ft_pub_freq).expectedCycleTime(), &FT::Pump, ft);
 }
 
 
