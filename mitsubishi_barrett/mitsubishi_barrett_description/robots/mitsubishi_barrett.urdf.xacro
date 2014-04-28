@@ -1,16 +1,48 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="mitsubishi_barrett">
-  
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/mitsubishi_barrett</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="gazebo_ros_joint_trajectory" filename="libgazebo_ros_joint_pose_trajectory.so">
+      <robotNamespace>/mitsubishi_barrett</robotNamespace>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+    </plugin>
+  </gazebo>
+ 
+
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find mitsubishi_arm_description)/urdf/mitsubishi_rv_6sdl_arm.gazebo" />
+  <xacro:include filename="$(find barrett_hand_description)/urdf/barrett_hand.gazebo" />
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find mitsubishi_arm_description)/urdf/materials.xacro" />
+
+  <!-- Used for fixing robot to Gazebo 'base_link' -->
+  <link name="world"/>
+
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
 
   <joint name="mitsubishi_barrett_joint" type="fixed">
     <parent link="end_effector"/>
     <child link="barrett_base_link"/>
   </joint>
 
-  <!-- Mitsubishi arm   -->  
+  <!-- Mitsubishi arm -->  
   <xacro:include filename="$(find mitsubishi_arm_description)/urdf/mitsubishi_rv_6sdl_arm.xacro" />
 
-  <!-- Barrett hand   -->  
+  <!-- Barrett hand -->  
   <xacro:include filename="$(find barrett_hand_description)/urdf/barrett_hand.xacro" />
 </robot>
 

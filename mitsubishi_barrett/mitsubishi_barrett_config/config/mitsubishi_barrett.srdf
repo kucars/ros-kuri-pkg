@@ -65,9 +65,10 @@
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="barrett_base_link" link2="elbow" reason="Never" />
     <disable_collisions link1="barrett_base_link" link2="elbow_block" reason="Never" />
-    <disable_collisions link1="barrett_base_link" link2="finger_1_dist_link" reason="Never" />
+    <disable_collisions link1="barrett_base_link" link2="finger_1_dist_link" reason="User" />
     <disable_collisions link1="barrett_base_link" link2="finger_1_med_link" reason="Never" />
     <disable_collisions link1="barrett_base_link" link2="finger_1_prox_link" reason="Adjacent" />
+    <disable_collisions link1="barrett_base_link" link2="finger_2_dist_link" reason="User" />
     <disable_collisions link1="barrett_base_link" link2="finger_2_med_link" reason="Never" />
     <disable_collisions link1="barrett_base_link" link2="finger_2_prox_link" reason="Adjacent" />
     <disable_collisions link1="barrett_base_link" link2="finger_3_dist_link" reason="Never" />
@@ -108,13 +109,19 @@
     <disable_collisions link1="elbow_block" link2="wrist" reason="Never" />
     <disable_collisions link1="finger_1_dist_link" link2="finger_1_med_link" reason="Adjacent" />
     <disable_collisions link1="finger_1_dist_link" link2="finger_1_prox_link" reason="Never" />
+    <disable_collisions link1="finger_1_dist_link" link2="finger_2_dist_link" reason="User" />
+    <disable_collisions link1="finger_1_dist_link" link2="finger_2_med_link" reason="User" />
     <disable_collisions link1="finger_1_dist_link" link2="finger_2_prox_link" reason="Never" />
+    <disable_collisions link1="finger_1_dist_link" link2="finger_3_dist_link" reason="User" />
+    <disable_collisions link1="finger_1_dist_link" link2="finger_3_med_link" reason="User" />
     <disable_collisions link1="finger_1_dist_link" link2="fore_arm" reason="Never" />
     <disable_collisions link1="finger_1_dist_link" link2="torque_sensor" reason="Never" />
     <disable_collisions link1="finger_1_dist_link" link2="wrist" reason="Never" />
     <disable_collisions link1="finger_1_med_link" link2="finger_1_prox_link" reason="Adjacent" />
+    <disable_collisions link1="finger_1_med_link" link2="finger_2_dist_link" reason="User" />
     <disable_collisions link1="finger_1_med_link" link2="finger_2_med_link" reason="Never" />
     <disable_collisions link1="finger_1_med_link" link2="finger_2_prox_link" reason="Never" />
+    <disable_collisions link1="finger_1_med_link" link2="finger_3_dist_link" reason="User" />
     <disable_collisions link1="finger_1_med_link" link2="finger_3_med_link" reason="Never" />
     <disable_collisions link1="finger_1_med_link" link2="fore_arm" reason="Never" />
     <disable_collisions link1="finger_1_med_link" link2="torque_sensor" reason="Never" />
@@ -126,15 +133,17 @@
     <disable_collisions link1="finger_1_prox_link" link2="finger_3_med_link" reason="Never" />
     <disable_collisions link1="finger_1_prox_link" link2="fore_arm" reason="Never" />
     <disable_collisions link1="finger_1_prox_link" link2="torque_sensor" reason="Never" />
-    <disable_collisions link1="finger_1_prox_link" link2="upper_arm" reason="Never" />
     <disable_collisions link1="finger_1_prox_link" link2="wrist" reason="Never" />
     <disable_collisions link1="finger_2_dist_link" link2="finger_2_med_link" reason="Adjacent" />
+    <disable_collisions link1="finger_2_dist_link" link2="finger_2_prox_link" reason="Never" />
+    <disable_collisions link1="finger_2_dist_link" link2="finger_3_dist_link" reason="User" />
+    <disable_collisions link1="finger_2_dist_link" link2="finger_3_med_link" reason="User" />
     <disable_collisions link1="finger_2_dist_link" link2="fore_arm" reason="Never" />
     <disable_collisions link1="finger_2_dist_link" link2="torque_sensor" reason="Never" />
-    <disable_collisions link1="finger_2_dist_link" link2="upper_arm" reason="Never" />
     <disable_collisions link1="finger_2_dist_link" link2="wrist" reason="Never" />
     <disable_collisions link1="finger_2_med_link" link2="finger_2_prox_link" reason="Adjacent" />
-    <disable_collisions link1="finger_2_med_link" link2="finger_3_med_link" reason="Never" />
+    <disable_collisions link1="finger_2_med_link" link2="finger_3_dist_link" reason="User" />
+    <disable_collisions link1="finger_2_med_link" link2="finger_3_med_link" reason="User" />
     <disable_collisions link1="finger_2_med_link" link2="fore_arm" reason="Never" />
     <disable_collisions link1="finger_2_med_link" link2="torque_sensor" reason="Never" />
     <disable_collisions link1="finger_2_med_link" link2="upper_arm" reason="Never" />
@@ -148,9 +157,11 @@
     <disable_collisions link1="finger_3_dist_link" link2="finger_3_med_link" reason="Adjacent" />
     <disable_collisions link1="finger_3_dist_link" link2="fore_arm" reason="Never" />
     <disable_collisions link1="finger_3_dist_link" link2="torque_sensor" reason="Never" />
+    <disable_collisions link1="finger_3_dist_link" link2="upper_arm" reason="Never" />
     <disable_collisions link1="finger_3_dist_link" link2="wrist" reason="Never" />
     <disable_collisions link1="finger_3_med_link" link2="fore_arm" reason="Never" />
     <disable_collisions link1="finger_3_med_link" link2="torque_sensor" reason="Never" />
+    <disable_collisions link1="finger_3_med_link" link2="upper_arm" reason="Never" />
     <disable_collisions link1="finger_3_med_link" link2="wrist" reason="Never" />
     <disable_collisions link1="fore_arm" link2="shoulder" reason="Never" />
     <disable_collisions link1="fore_arm" link2="torque_sensor" reason="Never" />

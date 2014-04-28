@@ -1,0 +1,7 @@
+digraph G {
+"world" -> "base_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.202 Hz\nMost recent transform: 151.676 \nBuffer length: 4.940 sec\n"];
+"shoulder" -> "upper_arm"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.202 Hz\nMost recent transform: 151.676 \nBuffer length: 4.940 sec\n"];
+"elbow" -> "elbow_block"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.202 Hz\nMost recent transform: 151.676 \nBuffer length: 4.940 sec\n"];
+"end_effector" -> "barrett_base_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.202 Hz\nMost recent transform: 151.676 \nBuffer length: 4.940 sec\n"];
+"torque_sensor" -> "end_effector"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.202 Hz\nMost recent transform: 151.676 \nBuffer length: 4.940 sec\n"];
+}
