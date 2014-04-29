@@ -5,28 +5,28 @@
 
   <!-- load the controllers -->
   <!--<node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller 
-	mitsubishi_joint1_position_controller 
-	mitsubishi_joint2_position_controller 
-	mitsubishi_joint3_position_controller 
-	mitsubishi_joint4_position_controller 
-	mitsubishi_joint5_position_controller
-	mitsubishi_joint6_position_controller
-        barrett_joint1_position_controller
-        barrett_joint2_position_controller
-        barrett_joint3_position_controller
-        barrett_joint4_position_controller
-        barrett_joint5_position_controller
-        barrett_joint6_position_controller
-        barrett_joint7_position_controller
-        barrett_joint8_position_controller"/>-->
+	mitsubishi_joint1_effort_controller 
+	mitsubishi_joint2_effort_controller 
+	mitsubishi_joint3_effort_controller 
+	mitsubishi_joint4_effort_controller 
+	mitsubishi_joint5_effort_controller
+	mitsubishi_joint6_effort_controller
+        barrett_joint1_effort_controller
+        barrett_joint2_effort_controller
+        barrett_joint3_effort_controller
+        barrett_joint4_effort_controller
+        barrett_joint5_effort_controller
+        barrett_joint6_effort_controller
+        barrett_joint7_effort_controller
+        barrett_joint8_effort_controller"/>-->
 
   <!--<node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller 
-	mitsubishi_joint1_position_controller 
-	mitsubishi_joint2_position_controller 
-	mitsubishi_joint3_position_controller 
-	mitsubishi_joint4_position_controller 
-	mitsubishi_joint5_position_controller
-	mitsubishi_joint6_position_controller
+	mitsubishi_joint1_effort_controller 
+	mitsubishi_joint2_effort_controller 
+	mitsubishi_joint3_effort_controller 
+	mitsubishi_joint4_effort_controller 
+	mitsubishi_joint5_effort_controller
+	mitsubishi_joint6_effort_controller
         barrett_joint1_velocity_controller
         barrett_joint2_velocity_controller
         barrett_joint3_velocity_controller
@@ -35,7 +35,6 @@
         barrett_joint6_velocity_controller
         barrett_joint7_velocity_controller
         barrett_joint8_velocity_controller"/>-->
-
   <node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller mitsubishi_trajectory_controller barrett_trajectory_controller"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
