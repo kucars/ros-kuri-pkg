@@ -33,8 +33,7 @@
         barrett_joint4_velocity_controller
         barrett_joint5_velocity_controller
         barrett_joint6_velocity_controller
-        barrett_joint7_velocity_controller
-        barrett_joint8_velocity_controller"/>-->
+        barrett_joint7_velocity_controller"/>-->
 
   <node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller mitsubishi_trajectory_controller barrett_trajectory_controller"/>
 </launch>

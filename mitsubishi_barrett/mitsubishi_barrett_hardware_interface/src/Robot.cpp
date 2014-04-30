@@ -15,18 +15,18 @@ int main(int argc, char** argv)
     std::string hand_type;
     bool forcetorque;
     bool modified_j1;
-    int pub_freq;  // DEPRECATED
-    int wam_pub_freq;
-    int hand_pub_freq;
-    int ft_pub_freq;
-    int tactile_pub_freq;
+    double pub_freq;  // DEPRECATED
+    double wam_pub_freq;
+    double hand_pub_freq;
+    double ft_pub_freq;
+    double tactile_pub_freq;
     n_priv.param("calibration_file",calibration_filename,std::string("wam_joint_calibrations"));
     n_priv.param("canbus_number",canbus_number,32);
     n_priv.param("hand_type",hand_type,std::string("280+TACT"));
     n_priv.param("forcetorque_sensor",forcetorque,false);
     n_priv.param("modified_j1",modified_j1,false);
-    int wam_freq_default=10;
-    int hand_freq_default=10;
+    double wam_freq_default=10.0;
+    double hand_freq_default=10.0;
 
     if (n_priv.getParam("publish_frequency",pub_freq))
     {
@@ -37,9 +37,9 @@ int main(int argc, char** argv)
         wam_freq_default=hand_freq_default=pub_freq;
     }
     n_priv.param("wam_publish_frequency",wam_pub_freq,wam_freq_default);
-    n_priv.param("hand_publish_frequency",hand_pub_freq,40);
-    n_priv.param("ft_publish_frequency",ft_pub_freq,10);
-    n_priv.param("tactile_publish_frequency",tactile_pub_freq,10);
+    n_priv.param("hand_publish_frequency",hand_pub_freq,40.0);
+    n_priv.param("ft_publish_frequency",ft_pub_freq,10.0);
+    n_priv.param("tactile_publish_frequency",tactile_pub_freq,10.0);
 
     if (wam_pub_freq > 500)
     {
@@ -80,7 +80,8 @@ int main(int argc, char** argv)
         exit(-1);
     }
 
-    MitsubishiBarrettHardwareInterface robot(canbus_number, forcetorque, tactile,  calibration_filename);
+    MitsubishiBarrettHardwareInterface robot(canbus_number, forcetorque, tactile,  calibration_filename, ft_pub_freq, tactile_pub_freq);
+    ROS_INFO("CHEGUEI AQUI");
     controller_manager::ControllerManager cm(&robot, n);
 
     ros::Time previous=ros::Time::now();
@@ -89,19 +90,21 @@ int main(int argc, char** argv)
     std::cout << "DONE" << std::endl;
     //#endif // OWDSIM
 
-
-
     ros::AsyncSpinner spinner(4);
     spinner.start();
     while (ros::ok())
     {
         ros::Duration period;
-        robot.readHW();
+        robot.mitsubishi_arm_interface.readHW();
+        robot.barrett_arm_interface.readHW();
+
         ros::Time now=ros::Time::now();
         period=now-previous;
         //std::cout << "period:"<<period<<std::endl;
         cm.update(now, period);
-        robot.writeHW();
+        robot.mitsubishi_arm_interface.writeHW();
+        robot.barrett_arm_interface.writeHW();
+
         ros::spinOnce();
         rate.sleep();
     }
