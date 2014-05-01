@@ -5,7 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded: ~
       Splitter Ratio: 0.74256
-    Tree Height: 809
+    Tree Height: 459
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -49,104 +49,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          barrett_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          elbow:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          elbow_block:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          end_effector:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          finger_1_dist_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_1_med_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_1_prox_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_2_dist_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_2_med_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_2_prox_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_3_dist_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_3_med_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          fore_arm:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          shoulder:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          shoulder_block:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          torque_sensor:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          upper_arm:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          wrist:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
         Loop Animation: false
         Robot Alpha: 0.5
         Show Robot Collision: false
@@ -190,104 +92,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          barrett_base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          elbow:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          elbow_block:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          end_effector:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          finger_1_dist_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_1_med_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_1_prox_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_2_dist_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_2_med_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_2_prox_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_3_dist_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          finger_3_med_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          fore_arm:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          shoulder:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          shoulder_block:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          torque_sensor:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          upper_arm:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          wrist:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
         Robot Alpha: 0.5
         Show Robot Collision: false
         Show Robot Visual: false
@@ -406,6 +210,93 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 0; 0
+      Max Intensity: 4.37174
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: tactile_finger_1
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 7
+      Size (m): 0.001
+      Style: Points
+      Topic: /mitsubishi_barrett/mitsubishi_barrett_hardware_interface/finger_1
+      Use Fixed Frame: true
+      Use rainbow: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: true
+      Max Color: 255; 0; 0
+      Max Intensity: 2.8776
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: tactile_finger_2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 7
+      Size (m): 0.003
+      Style: Points
+      Topic: /mitsubishi_barrett/mitsubishi_barrett_hardware_interface/finger_2
+      Use Fixed Frame: true
+      Use rainbow: false
+      Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 0; 0
+      Max Intensity: 4.03971
+      Min Color: 0; 0; 0
+      Min Intensity: 0.498047
+      Name: tactile_finger_3
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 7
+      Size (m): 0.01
+      Style: Points
+      Topic: /mitsubishi_barrett/mitsubishi_barrett_hardware_interface/finger_3
+      Use Fixed Frame: true
+      Use rainbow: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -421,17 +312,17 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.88892
+      Distance: 0.906366
       Focal Point:
-        X: 0.0716698
-        Y: -0.186991
-        Z: 2.5332e-07
+        X: 1.06706
+        Y: 0.0304118
+        Z: 1.34111e-07
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.084797
+      Pitch: 1.0548
       Target Frame: base_link
       Value: XYOrbit (rviz)
-      Yaw: 0.7786
+      Yaw: 3.4286
     Saved: ~
 Window Geometry:
   Displays:
@@ -443,7 +334,7 @@ Window Geometry:
   Hide Right Dock: false
   Motion Planning:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000010f000003dafc0200000005fb000000100044006900730070006c0061007900730100000028000003be000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e006701000003ec0000001600000016000000160000062a000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000003dafc0200000005fb000000100044006900730070006c006100790073010000002800000260000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e0067010000028e000001740000017400ffffff00000497000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1855
