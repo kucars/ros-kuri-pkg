@@ -33,7 +33,6 @@
     <child link="base_link"/>
   </joint>
 
-
   <joint name="mitsubishi_barrett_joint" type="fixed">
     <parent link="end_effector"/>
     <child link="barrett_base_link"/>
@@ -44,5 +43,17 @@
 
   <!-- Barrett hand -->  
   <xacro:include filename="$(find barrett_hand_description)/urdf/barrett_hand.xacro" />
+
+  <link name="arm_to_kinect">
+  </link>
+
+  <joint name="arm_camera" type="fixed">
+    <parent link="base_link"/>
+    <child link="arm_to_kinect"/>
+    <origin xyz="0.50 1.0 -0.10" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Kinect -->
+  <xacro:include filename="$(find mitsubishi_arm_description)/urdf/sensors.xacro" />
 </robot>
 
