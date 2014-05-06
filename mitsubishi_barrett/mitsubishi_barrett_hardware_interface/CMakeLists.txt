@@ -33,4 +33,5 @@ add_executable(mitsubishi_barrett_hardware_interface_node src/Robot.cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(mitsubishi_barrett_hardware_interface_node mitsubishi_barrett_hardware_interface ${catkin_LIBRARIES}  lapack blas gfortran)
 
-
+#add_executable(mitsubishi_barrett_hardware_interface_node_test src/Robot_test.cpp)
+#target_link_libraries(mitsubishi_barrett_hardware_interface_node_test mitsubishi_barrett_hardware_interface ${catkin_LIBRARIES}  lapack blas gfortran)

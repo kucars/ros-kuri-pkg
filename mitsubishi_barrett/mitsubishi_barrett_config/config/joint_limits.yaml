@@ -31,41 +31,41 @@ joint_limits:
     max_acceleration: 0
   finger_2_med_joint:
     has_velocity_limits: true
-    max_velocity: 0.001
+    max_velocity: 0.1
     has_acceleration_limits: false
     max_acceleration: 0
   finger_1_med_joint:
     has_velocity_limits: true
-    max_velocity: 0.001
+    max_velocity: 0.1
     has_acceleration_limits: false
     max_acceleration: 0
   finger_3_dist_joint:
     has_velocity_limits: true
-    max_velocity: 0.001
+    max_velocity: 0.1
     has_acceleration_limits: false
     max_acceleration: 0
   finger_2_prox_joint:
-    has_velocity_limits: true
-    max_velocity: 0.001
+    has_velocity_limits: false
+    max_velocity: 0.1
     has_acceleration_limits: false
     max_acceleration: 0
   finger_1_dist_joint:
-    has_velocity_limits: true
-    max_velocity: 0.001
+    has_velocity_limits: false
+    max_velocity: 0.1
     has_acceleration_limits: false
     max_acceleration: 0
   finger_1_prox_joint:
-    has_velocity_limits: true
-    max_velocity: 0.001
+    has_velocity_limits: false
+    max_velocity: 0.1
     has_acceleration_limits: false
     max_acceleration: 0
   finger_3_med_joint:
     has_velocity_limits: true
-    max_velocity: 0.001
+    max_velocity: 0.1
     has_acceleration_limits: false
     max_acceleration: 0
   finger_2_dist_joint:
     has_velocity_limits: true
-    max_velocity: 0.001
+    max_velocity: 0.1
     has_acceleration_limits: false
     max_acceleration: 0
