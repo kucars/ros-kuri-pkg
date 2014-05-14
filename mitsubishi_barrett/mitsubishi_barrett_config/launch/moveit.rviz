@@ -7,9 +7,8 @@ Panels:
         - /MotionPlanning1/Scene Geometry1
         - /MotionPlanning1/Planning Request1
         - /TF1/Frames1
-        - /PointCloud21
       Splitter Ratio: 0.74256
-    Tree Height: 244
+    Tree Height: 448
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -435,102 +434,19 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        arm_to_kinect:
-          Value: true
-        barrett_base_link:
-          Value: true
-        base_link:
-          Value: true
-        camera_depth_frame:
-          Value: true
-        camera_depth_optical_frame:
-          Value: true
-        camera_link:
-          Value: true
-        camera_rgb_frame:
-          Value: true
-        camera_rgb_optical_frame:
-          Value: true
-        elbow:
-          Value: true
-        elbow_block:
-          Value: true
-        end_effector:
-          Value: true
-        finger_1_dist_link:
-          Value: true
-        finger_1_med_link:
-          Value: true
-        finger_1_prox_link:
-          Value: true
-        finger_2_dist_link:
-          Value: true
-        finger_2_med_link:
-          Value: true
-        finger_2_prox_link:
-          Value: true
-        finger_3_dist_link:
-          Value: true
-        finger_3_med_link:
-          Value: true
-        fore_arm:
-          Value: true
-        shoulder:
-          Value: true
-        shoulder_block:
-          Value: true
-        torque_sensor:
-          Value: true
-        upper_arm:
-          Value: true
-        world:
-          Value: true
-        wrist:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        world:
-          base_link:
-            arm_to_kinect:
-              {}
-            camera_link:
-              camera_depth_frame:
-                camera_depth_optical_frame:
-                  {}
-              camera_rgb_frame:
-                camera_rgb_optical_frame:
-                  {}
-            shoulder_block:
-              shoulder:
-                upper_arm:
-                  elbow:
-                    elbow_block:
-                      fore_arm:
-                        wrist:
-                          torque_sensor:
-                            end_effector:
-                              barrett_base_link:
-                                finger_1_prox_link:
-                                  finger_1_med_link:
-                                    finger_1_dist_link:
-                                      {}
-                                finger_2_prox_link:
-                                  finger_2_med_link:
-                                    finger_2_dist_link:
-                                      {}
-                                finger_3_med_link:
-                                  finger_3_dist_link:
-                                    {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -636,16 +552,32 @@ Visualization Manager:
       Max Intensity: 4096
       Min Color: 0; 0; 0
       Min Intensity: 0
-      Name: PointCloud2
+      Name: kinect
       Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
       Size (m): 0.01
-      Style: Flat Squares
+      Style: Points
       Topic: /camera/depth_registered/points
       Use Fixed Frame: true
       Use rainbow: true
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /tabletop_segmentation_markers
+      Name: table plane
+      Namespaces:
+        tabletop_node: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /detector_markers
+      Name: object recognition
+      Namespaces:
+        detection: true
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
@@ -662,17 +594,17 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.27472
+      Distance: 1.48426
       Focal Point:
-        X: 1.06706
-        Y: 0.0304118
-        Z: 1.34111e-07
+        X: 0.767133
+        Y: 0.242192
+        Z: 8.19569e-08
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.0197969
+      Pitch: -0.0747963
       Target Frame: base_link
       Value: XYOrbit (rviz)
-      Yaw: 0.0336012
+      Yaw: 0.298596
     Saved: ~
 Window Geometry:
   Displays:
@@ -684,9 +616,9 @@ Window Geometry:
   Hide Right Dock: false
   Motion Planning:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000003dafc0200000005fb000000100044006900730070006c006100790073010000002800000189000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e006701000001b70000024b0000017400ffffff00000497000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000003dafc0200000005fb000000100044006900730070006c006100790073010000002800000255000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e006701000002830000017f0000017400ffffff00000497000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1855
-  X: 57
-  Y: -4
+  X: 65
+  Y: 24
