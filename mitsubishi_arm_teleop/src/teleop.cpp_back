@@ -1,0 +1,212 @@
+/*************************************************************************************
+* Copyright (C) 2013 - 2014 by                                                       *
+* Tarek Taha, Rui P. de Figueiredo, Khalifa University Robotics Institute KURI       *
+*                     <tarek.taha@kustar.ac.ae>, <rui.defigueiredo@kustar.ac.ae>     *
+*                                                                                    *
+*                                                                                    *
+* This program is free software; you can redistribute it and/or modify               *
+* it under the terms of the GNU General Public License as published by               *
+* the Free Software Foundation; either version 2 of the License, or                  *
+* (at your option) any later version.                                                *
+*                                                                                    *
+* This program is distributed in the hope that it will be useful,                    *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of                     *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the                       *
+* GNU General Public License for more details.                                       *
+*                                                                                    *
+* You should have received a copy of the GNU General Public License                  *
+* along with this program; if not, write to the                                      *
+* Free Software Foundation, Inc.,                                                    *
+* 51 Franklin Steet, Fifth Floor, Boston, MA 02111-1307, USA.                        *
+**************************************************************************************/
+#include <endian.h>
+#include <algorithm>
+#include <iterator>
+#include <vector>
+#include <ros/ros.h>
+#include <boost/array.hpp>
+#include <boost/asio.hpp>
+#include <boost/asio/deadline_timer.hpp>
+#include <boost/bind.hpp>
+#include <boost/date_time/posix_time/posix_time_types.hpp>
+#include <std_msgs/Bool.h>
+#include <geometry_msgs/Point.h>
+#include <visualeyez_tracker/TrackerPose.h>
+#include <std_msgs/Float64.h>
+#include <iostream>   // std::cout
+#include <string>     // std::string, std::stod
+
+// the requested function
+#include <sstream>
+/*
+  References used to develop this code:
+  https://github.com/cwru-robotics/cwru-ros-pkg/blob/master/cwru_semi_stable/cwru_base/src/crio_receiver.cpp
+  http://www.boost.org/doc/libs/1_46_0/doc/html/boost_asio/example/timeouts/async_tcp_client.cpp
+  http://www.boost.org/doc/libs/1_46_1/doc/html/boost_asio/example/timeouts/blocking_tcp_client.cpp
+  http://www.boost.org/doc/libs/1_46_0/doc/html/boost_asio/examples.html
+  Remember that boost compatibility is important (methods and functions changed in the latest boost versions)!
+  Boost 1.46.x is used in Ubuntu 12.04 so stick to it!
+*/
+
+bool dont_read=false;
+
+using boost::asio::ip::tcp;
+using boost::asio::deadline_timer;
+
+void check_deadline(deadline_timer& deadline, tcp::socket& socket) 
+{
+    if (deadline.expires_at() <= deadline_timer::traits_type::now())
+    {
+        socket.cancel();
+        deadline.expires_at(boost::posix_time::pos_infin);
+    }
+    deadline.async_wait(boost::bind(&check_deadline, boost::ref(deadline), boost::ref(socket)));
+}
+
+boost::asio::streambuf receiveBuffer;
+bool gotTheData = false;
+std::vector<std::string> tokens;
+
+static void handle_receive(const boost::system::error_code& errorCode, std::size_t inputLength,boost::system::error_code* output_ec, std::size_t* outputLength)
+{
+    if(!errorCode && !dont_read)
+    {
+        tokens.clear();
+        //ROS_INFO_STREAM("BUFFER SIZE:"<<receiveBuffer.size());fflush(stdout);
+        std::istream is(&receiveBuffer);
+        copy(std::istream_iterator<std::string>(is),
+             std::istream_iterator<std::string>(),
+             std::back_inserter<std::vector<std::string> >(tokens));
+
+        //std::cout<<"Got a new Line, number ot tokens:"<<is<<std::endl;fflush(stdout);
+        if(tokens.size()!=2)
+            return;
+
+        //std::cout << "token:"<<tokens[0] << std::endl;
+        //  sleep(2.0);
+
+        //std::cout<<"Got a new Line, number ot tokens:"<<tokens.size()<<"\n";fflush(stdout);
+
+        /*for(int i=0;i<tokens.size();i++)
+        {
+            if(tokens[i]!="" && tokens[i]!=" ")
+                std::cout<<"Token:"<<tokens[i]<< " " <<i<<"\n";fflush(stdout);
+        }*/
+
+        gotTheData = true;
+        dont_read=true;
+    }
+    else
+        ROS_INFO_STREAM("Yes, they call me every now and Error Code: "<<output_ec->message());
+}
+
+void connect_handler(const boost::system::error_code& error)
+{
+    if (!error)
+    {
+        ROS_INFO("Successfully Connected");
+    }
+    else
+    {
+        ROS_INFO("Something went wrong");
+    }
+}
+
+
+float string_to_double( const std::string& s )
+{
+    std::istringstream i(s);
+    float x;
+    if (!(i >> x))
+        return 0;
+    return x;
+}
+
+int main(int argc, char *argv[]) 
+{
+    ros::init(argc, argv, "visualeyez_tracker");
+    ros::NodeHandle nh;
+    ros::NodeHandle privateNh("~");
+    int socket_timeout;
+    std::string server_ip,server_port;
+
+    ROS_INFO("NODE INIT!!!!");
+    privateNh.param("socket_timeout", socket_timeout, int(10));
+    privateNh.param<std::string>("server_ip",      server_ip,   std::string("10.10.101.50"));
+    privateNh.param<std::string>("server_port",    server_port, std::string("12345"));
+    ROS_INFO("Server Ip is:%s port is:%s socket timeout is:%d",server_ip.c_str(),server_port.c_str(),socket_timeout);
+
+    visualeyez_tracker::TrackerPose trackerPose;
+
+    ros::Publisher joint_1_pub=nh.advertise<std_msgs::Float64>("/mitsubishi_arm/joint1_position_controller/command", 2);
+
+    boost::asio::io_service io_service;
+    tcp::resolver resolver(io_service);
+    tcp::resolver::query query(tcp::v4(), server_ip.c_str(), server_port.c_str());
+    tcp::resolver::iterator iterator = resolver.resolve(query);
+    ROS_INFO("Trying to connect");
+    tcp::socket socket(io_service);
+    socket.async_connect(iterator->endpoint(), connect_handler);
+    ROS_INFO("Connected");
+    deadline_timer deadline(io_service);
+    deadline.expires_at(boost::posix_time::pos_infin);
+    check_deadline(deadline, socket);
+    boost::posix_time::seconds timeout(socket_timeout);
+    ros::Rate loop_rate(500);
+    boost::system::error_code error;
+    std::size_t length;
+
+    //PoseBroadcaster pose_broadcaster(nh);
+
+    while (nh.ok())
+    {
+        try
+        {
+            error = boost::asio::error::would_block;
+            length = 0;
+            deadline.expires_from_now(timeout);
+
+            boost::asio::async_read_until(socket, receiveBuffer, '\n', boost::bind(&handle_receive, _1, _2, &error, &length));
+            while(!gotTheData&&ros::ok())
+            {
+                io_service.poll();
+            }
+
+            if(gotTheData)
+            {
+
+                //int tuples = (tokens.size()/4);
+
+
+                double joint1 = string_to_double(tokens[0]);
+                std::cout << "token:"<<tokens[0] << std::endl;
+                std::cout << "token after:" << tokens[0].c_str() << std::endl;
+                std::string::size_type sz;     // alias of size_t
+
+                //double joint1 = boost::lexical_cast<double> (tokens[0]);
+                //double joint1 = std::stod (tokens[0],&sz);
+                //double joint1=atof(tokens[0]);
+                //double joint2=atof(tokens[1].c_str());
+                //double joint3=atof(tokens[2].c_str());
+
+                ROS_INFO(" VisualEyez Sending Location: [%f]", joint1);
+
+                std_msgs::Float64 joint1_msg;
+                joint1_msg.data=joint1;
+                joint_1_pub.publish(joint1_msg);
+
+
+                dont_read=false;
+            }
+            gotTheData = false;
+
+        }
+        catch (std::exception& e)
+        {
+            ROS_ERROR_STREAM("cRIO receiver threw an exception: " << e.what());
+        }
+        ros::spinOnce();
+        loop_rate.sleep();
+    }
+}
+
