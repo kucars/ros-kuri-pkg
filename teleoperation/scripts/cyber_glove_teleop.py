@@ -54,7 +54,7 @@ if __name__=="__main__":
     rospy.init_node('cyber_glove_teleop')
     pub = rospy.Publisher('/RosAria/cmd_vel', Twist)
 
-    c=serial.Serial('/dev/ttyUSB1')
+    c=serial.Serial('/dev/ttyUSB0')
     c.baudrate=115200
     data=[]
     circular=[]

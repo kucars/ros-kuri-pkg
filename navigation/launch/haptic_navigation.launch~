@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <launch>
 
   <node name="slave_controller" pkg="navigation" type="controller_ros" output="screen">

@@ -5,7 +5,7 @@
     <rosparam command="load" file="$(find navigation)/config/slave_params.yaml" />
     <rosparam command="load" file="$(find navigation)/config/master_params.yaml" />
     <remap from="/cmd_vel" to="/Pioneer3AT/cmd_vel"/> 
-    <remap from="/pose" to="/Pioneer3AT/pose"/> 
+    <remap from="/pose" to="/ground_truth/state"/> 
   <!--  <remap from="/cmd_vel" to="/cmd_vel"/> --> <!-- for the airdrone --> 
      <!--<remap from="/pose" to="/ground_truth/state"/> --> <!-- for the airdrone --> 
   </node>
