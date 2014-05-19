@@ -113,25 +113,12 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
-<<<<<<< HEAD:navigation/CMakeLists.txt~
-#add_executable(laser2PC2 src/laser2PC2.cpp)
-#add_dependencies(laser2PC2 ${PROJECT_NAME}_gencfg ${PROJECT_NAME}_generate_messages_cpp)
-#target_link_libraries(laser2PC2
-#   ${catkin_LIBRARIES}
-#   ${Boost_LIBRARIES}
-#)
-add_executable(controller_ros src/ControllerRos.cpp)
-add_dependencies(controller_ros ${PROJECT_NAME}_gencfg)
-target_link_libraries(controller_ros
-   controller
-   ${catkin_LIBRARIES}
-   ${Boost_LIBRARIES}
-)
-=======
+
+
 #############
 ## Install ##
 #############
->>>>>>> 42873f96fcc8f5c672ba179a7d584d0c0ae55e17:mitsubishi_arm_barret_hand/mitsubishi_arm_barrett_hand_description/CMakeLists.txt
+
 
 # all install targets should use catkin DESTINATION variables
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
