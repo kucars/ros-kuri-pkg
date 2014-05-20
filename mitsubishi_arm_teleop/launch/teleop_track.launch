@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <node name="mitsubishi_arm_teleop" pkg="mitsubishi_arm_teleop" type="mitsubishi_arm_teleop" respawn="true" output="screen">
+        <param name="socket_timeout" value="20" type="int" />
+        <param name="server_port" value="12345" type="str"/>
+        <param name="server_ip"   value="10.10.101.16" type="str"/>
+  </node>
+</launch>

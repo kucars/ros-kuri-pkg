@@ -76,7 +76,9 @@ std::vector<std::string> tokens;
 static void handle_receive(const boost::system::error_code& errorCode, std::size_t inputLength,boost::system::error_code* output_ec, std::size_t* outputLength)
 {
     boost::mutex::scoped_lock
-      lock(mtx);
+            lock(mtx);
+    ROS_INFO("HERE");
+
     if(!errorCode&&read_data)
     {
         tokens.clear();
@@ -86,18 +88,22 @@ static void handle_receive(const boost::system::error_code& errorCode, std::size
              std::istream_iterator<std::string>(),
              std::back_inserter<std::vector<std::string> >(tokens));
 
-    std::cout<<"Got a new Line, number ot tokens:"<<is<<std::endl;fflush(stdout);
-        std::cout<<"Got a new Line, number ot tokens:"<<tokens.size()<<"\n";fflush(stdout);
+        //std::cout<<"Got a new Line, number ot tokens:"<<is<<std::endl;fflush(stdout);
+        //std::cout<<"Got a new Line, number ot tokens:"<<tokens.size()<<"\n";fflush(stdout);
         for(int i=0;i<tokens.size();i++)
         {
             if(tokens[i]!="" && tokens[i]!=" ")
                 std::cout<<"Token:"<<tokens[i]<<"\n";fflush(stdout);
         }
 
+        ROS_INFO("HERE1");
         gotTheData = true;
     }
     else
         ROS_INFO_STREAM("Yes, they call me every now and Error Code: "<<output_ec->message());
+
+    ROS_INFO("HERE2");
+
 
 }
 
@@ -173,7 +179,7 @@ int main(int argc, char *argv[])
             if(((tokens.size()-1)%3)==0 && tokens.size()!=1)
             {
                 boost::mutex::scoped_lock
-                  lock(mtx);
+                        lock(mtx);
 
                 read_data=false;
 
@@ -191,7 +197,7 @@ int main(int argc, char *argv[])
 
                     theta= atof(tokens[i].c_str());
 
-                   // std::cout << "after conversion: "<<  tokens[i].c_str() << std::endl;fflush(stdout);
+                    // std::cout << "after conversion: "<<  tokens[i].c_str() << std::endl;fflush(stdout);
                     //ROS_INFO(" VisualEyez Sending Location: [%s] [%f] [%f] [%f]",trackerPose.tracker_id.c_str(),trackerPose.pose.x ,trackerPose.pose.y ,trackerPose.pose.z );
 
                     std_msgs::Float64 joint_msg;
@@ -207,7 +213,7 @@ int main(int argc, char *argv[])
 
 
                 read_data=true;
-       //std::cout << "number of tuples:" << tuples << std::endl;
+                //std::cout << "number of tuples:" << tuples << std::endl;
             }
         }
         catch (std::exception& e)
