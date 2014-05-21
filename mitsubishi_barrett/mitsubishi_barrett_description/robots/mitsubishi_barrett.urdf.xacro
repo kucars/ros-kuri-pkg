@@ -44,24 +44,20 @@
   <!-- Barrett hand -->  
   <xacro:include filename="$(find barrett_hand_description)/urdf/barrett_hand.xacro" />
 
-  <link name="arm_to_kinect">
-  </link>
+  <!-- Kinect Camera Location (Nominally 0) -->
+  <property name="cal_kinect_x" value="0.0" />
+  <property name="cal_kinect_y" value="0.0" />
+  <property name="cal_kinect_z" value="0.0" />
+  <property name="cal_kinect_roll" value="0.0" />
+  <property name="cal_kinect_pitch" value="0.0" />
+  <property name="cal_kinect_yaw" value="0.0" />
+  <xacro:include filename="$(find mitsubishi_arm_description)/urdf/sensors.urdf.xacro" />
 
-  <joint name="arm_camera" type="fixed">
-    <parent link="base_link"/>
-    <child link="arm_to_kinect"/>
-    <origin xyz="0.50 1.0 -0.10" rpy="0 0 0"/>
-  </joint>
 
-  <!-- Kinect -->
-  <xacro:include filename="$(find mitsubishi_arm_description)/urdf/sensors.xacro" />
-
-  <!-- kinect to base link -->
-  <joint name="camera_in_world_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="camera_link"/>
-    <origin xyz="0.796357 0.919602 0.431341" rpy="0.0247013 0.415733 -1.55723"/>
-  </joint>  
+  <!-- Base of Kinect/Prosilica Mount -->
+  <xacro:kinect_camera_v0 name="camera" parent="base_link" >
+     <origin xyz="0.796357 0.919602 0.431341" rpy="0.0247013 0.415733 -1.55723"/>
+  </xacro:kinect_camera_v0 >
 
 </robot>
 

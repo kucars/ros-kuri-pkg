@@ -40,6 +40,8 @@
 #include <iostream>
 
 #include <string>
+#include <queue>
+
 
 boost::mutex mtx;           // mutex for critical section
 
@@ -53,6 +55,8 @@ boost::mutex mtx;           // mutex for critical section
   Remember that boost compatibility is important (methods and functions changed in the latest boost versions)!
   Boost 1.46.x is used in Ubuntu 12.04 so stick to it!
 */
+
+
 
 using boost::asio::ip::tcp;
 using boost::asio::deadline_timer;
@@ -142,6 +146,13 @@ int main(int argc, char *argv[])
     ros::Publisher joint_3_pub=nh.advertise<std_msgs::Float64>("/mitsubishi_arm/joint3_position_controller/command", 2);
 
 
+    int buffer_length=10;
+
+    std::queue<std_msgs::Float64> joint_1_last_readings;
+    std::queue<std_msgs::Float64> joint_2_last_readings;
+    std::queue<std_msgs::Float64> joint_3_last_readings;
+
+
 
     boost::asio::io_service io_service;
     tcp::resolver resolver(io_service);
@@ -207,10 +218,39 @@ int main(int argc, char *argv[])
                     std::cout << i << ":"<<  joints[i].data << " ";
                 }
                 std::cout << "\n";
+
+                /*if(joint_1_last_readings.size()<buffer_length-1)
+                {
+                    joint_1_last_readings.push(joints[0]);
+                    joint_2_last_readings.push(joints[1]);
+                    joint_3_last_readings.push(joints[2]);
+                }
+                else
+                {
+                    joint_1_last_readings.push(joints[0]);
+                    joint_2_last_readings.push(joints[1]);
+                    joint_3_last_readings.push(joints[2]);
+
+                    double joint_1_av=0.0;
+                    for(int i=0; i < buffer_length; ++i)
+                    {
+                        joint_1_av+=joint_1_last_readings[i];
+                    }
+
+                    joint_1_av/=joint_1_last_readings.size();
+                    std::cout << joint_1_av<< std::endl;
+
+
+                    joint_1_last_readings.pop();
+                    joint_2_last_readings.pop();
+                    joint_3_last_readings.pop();
+
+                    joint_1_pub.publish(joint_1_av);
+
+                }*/
                 joint_1_pub.publish(joints[0]);
                 joint_2_pub.publish(joints[1]);
                 joint_3_pub.publish(joints[2]);
-
 
                 read_data=true;
                 //std::cout << "number of tuples:" << tuples << std::endl;

@@ -3,39 +3,7 @@
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find mitsubishi_barrett_control)/config/mitsubishi_barrett_control_gazebo.yaml" command="load"/>
 
-  <!-- load the controllers -->
-  <!--<node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller 
-	mitsubishi_joint1_effort_controller 
-	mitsubishi_joint2_effort_controller 
-	mitsubishi_joint3_effort_controller 
-	mitsubishi_joint4_effort_controller 
-	mitsubishi_joint5_effort_controller
-	mitsubishi_joint6_effort_controller
-        barrett_joint1_effort_controller
-        barrett_joint2_effort_controller
-        barrett_joint3_effort_controller
-        barrett_joint4_effort_controller
-        barrett_joint5_effort_controller
-        barrett_joint6_effort_controller
-        barrett_joint7_effort_controller
-        barrett_joint8_effort_controller"/>-->
-
-  <!--<node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller 
-	mitsubishi_joint1_effort_controller 
-	mitsubishi_joint2_effort_controller 
-	mitsubishi_joint3_effort_controller 
-	mitsubishi_joint4_effort_controller 
-	mitsubishi_joint5_effort_controller
-	mitsubishi_joint6_effort_controller
-        barrett_joint1_velocity_controller
-        barrett_joint2_velocity_controller
-        barrett_joint3_velocity_controller
-        barrett_joint4_velocity_controller
-        barrett_joint5_velocity_controller
-        barrett_joint6_velocity_controller
-        barrett_joint7_velocity_controller
-        barrett_joint8_velocity_controller"/>-->
-  <node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller mitsubishi_trajectory_controller barrett_trajectory_controller"/>
+  <node ns="/mitsubishi_barrett" pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false" output="screen" args="joint_state_controller mitsubishi_trajectory_controller barrett_trajectory_controller"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
