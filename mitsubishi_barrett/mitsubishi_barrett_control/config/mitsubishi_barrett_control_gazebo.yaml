@@ -133,8 +133,8 @@ mitsubishi_barrett:
         p: 1000.0
         i: 10.0
         d: 50.0
-    state_publish_rate: 50.0
-    action_monitor_rate: 50.0
+    #state_publish_rate: 50.0
+    #action_monitor_rate: 50.0
     constraints:
       goal_time: 100.0                   # Override default
       j1:

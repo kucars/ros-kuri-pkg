@@ -1,34 +1,20 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find mitsubishi_barrett_control)/config/mitsubishi_barrett_control.yaml" command="load"/>
 
-  <!-- load the controllers -->
-  <!--<node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller 
-	mitsubishi_joint1_position_controller 
-	mitsubishi_joint2_position_controller 
-	mitsubishi_joint3_position_controller 
-	mitsubishi_joint4_position_controller 
-	mitsubishi_joint5_position_controller
-	mitsubishi_joint6_position_controller
-        barrett_joint1_position_controller
-        barrett_joint2_position_controller
-        barrett_joint3_position_controller
-        barrett_joint4_position_controller
-        barrett_joint5_position_controller"/>-->
+   <arg name="simulation" default="true"/>
 
-  <!--<node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller 
-	mitsubishi_joint1_position_controller 
-	mitsubishi_joint2_position_controller 
-	mitsubishi_joint3_position_controller 
-	mitsubishi_joint4_position_controller 
-	mitsubishi_joint5_position_controller
-	mitsubishi_joint6_position_controller
-        barrett_joint1_velocity_controller
-        barrett_joint2_velocity_controller
-        barrett_joint3_velocity_controller
-        barrett_joint4_velocity_controller
-        barrett_joint5_velocity_controller"/>-->
+   <group if="$(arg simulation)">
+  	<!-- Load joint controller configurations from YAML file to parameter server -->
+  	<rosparam file="$(find mitsubishi_barrett_control)/config/mitsubishi_barrett_control_gazebo.yaml" command="load"/>
+   </group>
+   <group unless="$(arg simulation)">
+  	<!-- Load joint controller configurations from YAML file to parameter server -->
+  	<rosparam file="$(find mitsubishi_barrett_control)/config/mitsubishi_barrett_control.yaml" command="load"/>
+   </group>
 
-  <node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller mitsubishi_trajectory_controller barrett_trajectory_controller"/>
+   <node ns="/mitsubishi_barrett" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller mitsubishi_trajectory_controller barrett_trajectory_controller"/>
+
+  <!-- Given the published joint states, publish tf for the robot links -->
+  <node ns="/mitsubishi_barrett" name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
 </launch>
