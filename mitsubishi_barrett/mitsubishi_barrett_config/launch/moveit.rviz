@@ -4,11 +4,12 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /MotionPlanning1/Scene Geometry1
+        - /MotionPlanning1
+        - /MotionPlanning1/Scene Robot1
         - /MotionPlanning1/Planning Request1
-        - /TF1/Frames1
+        - /MotionPlanning1/Planned Path1
       Splitter Ratio: 0.74256
-    Tree Height: 448
+    Tree Height: 119
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -52,10 +53,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          arm_to_kinect:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           barrett_base_link:
             Alpha: 1
             Show Axes: false
@@ -67,6 +64,11 @@ Visualization Manager:
             Show Trail: false
             Value: true
           camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_optical_frame:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -174,15 +176,15 @@ Visualization Manager:
         TextHeight: 0.08
       Planning Request:
         Colliding Link Color: 255; 0; 0
-        Goal State Alpha: 0.2
+        Goal State Alpha: 1
         Goal State Color: 250; 128; 0
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
-        Planning Group: arm
+        Planning Group: hand
         Query Goal State: true
         Query Start State: false
         Show Workspace: false
-        Start State Alpha: 0.5
+        Start State Alpha: 1
         Start State Color: 0; 255; 0
       Planning Scene Topic: /move_group/monitored_planning_scene
       Robot Description: robot_description
@@ -201,10 +203,6 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          arm_to_kinect:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
           barrett_base_link:
             Alpha: 1
             Show Axes: false
@@ -216,6 +214,11 @@ Visualization Manager:
             Show Trail: false
             Value: true
           camera_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          camera_optical_frame:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -309,280 +312,12 @@ Visualization Manager:
             Value: true
         Robot Alpha: 0.5
         Show Robot Collision: false
-        Show Robot Visual: false
-      Value: true
-    - Alpha: 1
-      Class: rviz/RobotModel
-      Collision Enabled: false
-      Enabled: true
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        Link Tree Style: Links in Alphabetic Order
-        arm_to_kinect:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        barrett_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        elbow:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        elbow_block:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        end_effector:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        finger_1_dist_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        finger_1_med_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        finger_1_prox_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        finger_2_dist_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        finger_2_med_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        finger_2_prox_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        finger_3_dist_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        finger_3_med_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        fore_arm:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        shoulder:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        shoulder_block:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        torque_sensor:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        upper_arm:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        world:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        wrist:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-      Name: RobotModel
-      Robot Description: robot_description
-      TF Prefix: ""
-      Update Interval: 0
-      Value: true
-      Visual Enabled: true
-    - Class: rviz/TF
-      Enabled: false
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        {}
-      Update Interval: 0
-      Value: false
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 0; 0
-      Max Intensity: 0
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: tactile_finger_1
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 7
-      Size (m): 0.001
-      Style: Points
-      Topic: /mitsubishi_barrett/mitsubishi_barrett_hardware_interface/finger_1
-      Use Fixed Frame: true
-      Use rainbow: false
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: true
-      Max Color: 255; 0; 0
-      Max Intensity: 0
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: tactile_finger_2
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 7
-      Size (m): 0.003
-      Style: Points
-      Topic: /mitsubishi_barrett/mitsubishi_barrett_hardware_interface/finger_2
-      Use Fixed Frame: true
-      Use rainbow: false
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 0; 0
-      Max Intensity: 0
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: tactile_finger_3
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 7
-      Size (m): 0.01
-      Style: Points
-      Topic: /mitsubishi_barrett/mitsubishi_barrett_hardware_interface/finger_3
-      Use Fixed Frame: true
-      Use rainbow: false
-      Value: true
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: RGB8
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Max Intensity: 4096
-      Min Color: 0; 0; 0
-      Min Intensity: 0
-      Name: kinect
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.01
-      Style: Points
-      Topic: /camera/depth_registered/points
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /tabletop_segmentation_markers
-      Name: table plane
-      Namespaces:
-        tabletop_node: true
-      Queue Size: 100
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /detector_markers
-      Name: object recognition
-      Namespaces:
-        detection: true
-      Queue Size: 100
+        Show Robot Visual: true
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -594,31 +329,36 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.48426
+      Distance: 2.9965
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.06
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
       Focal Point:
-        X: 0.767133
-        Y: 0.242192
-        Z: 8.19569e-08
+        X: 0.113567
+        Y: 0.10592
+        Z: 2.23518e-07
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: -0.0747963
-      Target Frame: base_link
+      Pitch: 0.704797
+      Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 0.298596
+      Yaw: 0.176765
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1056
+  Height: 744
   Help:
     collapsed: false
   Hide Left Dock: false
   Hide Right Dock: false
   Motion Planning:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000003dafc0200000005fb000000100044006900730070006c006100790073010000002800000255000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e006701000002830000017f0000017400ffffff00000497000003da00000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000002a2fc0200000005fb000000100044006900730070006c00610079007301000000280000010c000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e0067010000013a000001900000017400ffffff0000026d000002a200000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1855
+  Width: 1301
   X: 65
   Y: 24
