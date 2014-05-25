@@ -34,7 +34,7 @@ mitsubishi_barrett:
   barrett_joint1_effort_controller:
     type: effort_controllers/JointPositionController
     joint: finger_1_med_joint
-    pid: {p: 1000.0, i: 10.0, d: 50.0}
+    pid: {p: 500.0, i: 0.0, d: 0.5}
   barrett_joint2_effort_controller:
     type: effort_controllers/JointPositionController
     joint: finger_2_med_joint
@@ -52,17 +52,7 @@ mitsubishi_barrett:
     joint: finger_2_prox_joint
     pid: {p: 1000.0, i: 10.0, d: 50.0}
     pid: {p: 1000.0, i: 10.0, d: 50.0}
-  barrett_joint6_effort_controller:
-    type: effort_controllers/JointPositionController
-    joint: finger_1_dist_joint
-    pid: {p: 1000.0, i: 10.0, d: 50.0}
-  barrett_joint7_effort_controller:
-    type: effort_controllers/JointPositionController
-    joint: finger_2_dist_joint
-    pid: {p: 1000.0, i: 10.0, d: 50.0}
-  barrett_joint8_effort_controller:
-    type: effort_controllers/JointPositionController
-    joint: finger_3_dist_joint
+
 
   # Barrett Hand Velocity Controllers ---------------------------------------
   barrett_joint1_velocity_controller:
@@ -84,18 +74,6 @@ mitsubishi_barrett:
   barrett_joint5_velocity_controller:
     type: velocity_controllers/JointVelocityController
     joint: finger_2_prox_joint
-    pid: {p: 1.0, i: 0.0, d: 0.0}
-  barrett_joint6_velocity_controller:
-    type: velocity_controllers/JointVelocityController
-    joint: finger_1_dist_joint
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  barrett_joint7_velocity_controller:
-    type: velocity_controllers/JointVelocityController
-    joint: finger_2_dist_joint
-    pid: {p: 100.0, i: 0.0, d: 0.0}
-  barrett_joint8_velocity_controller:
-    type: velocity_controllers/JointVelocityController
-    joint: finger_3_dist_joint
     pid: {p: 100.0, i: 0.0, d: 0.0}
 
   # Trajectory Controllers ---------------------------------------
@@ -133,22 +111,26 @@ mitsubishi_barrett:
         p: 1000.0
         i: 10.0
         d: 50.0
-    #state_publish_rate: 50.0
-    #action_monitor_rate: 50.0
     constraints:
-      goal_time: 100.0                   # Override default
+      goal_time: 10000.0                   # Override default
       j1:
-        trajectory: 0.01
+        trajectory: -1.0
+        goal: 0.1
       j2:
-        trajectory: 0.01
+        trajectory: -1.0
+        goal: 0.1
       j3:
-        trajectory: 0.01
+        trajectory: -1.0
+        goal: 0.1
       j4:
-        trajectory: 0.01
+        trajectory: -1.0
+        goal: 0.1
       j5:
-        trajectory: 0.01
+        trajectory: -1.0
+        goal: 0.1
       j6:
         trajectory: -1.0
+        goal: 0.1
 
   barrett_trajectory_controller:
     type: effort_controllers/JointTrajectoryController
@@ -158,60 +140,55 @@ mitsubishi_barrett:
       - finger_3_med_joint
       - finger_1_prox_joint
       - finger_2_prox_joint
-      - finger_1_dist_joint
-      - finger_2_dist_joint
-      - finger_3_dist_joint
     gains:
       finger_1_med_joint:
         p: 1000.0
-        i: 0.01
-        d: 10.0
+        i: 10.0
+        d: 50.0
       finger_2_med_joint:
         p: 1000.0
-        i: 0.01
-        d: 10.0
+        i: 10.0
+        d: 50.0
       finger_3_med_joint:
         p: 1000.0
-        i: 0.01
-        d: 10.0
-      finger_1_prox_joint:
-        p: 1000.0
-        i: 0.01
-        d: 10.0
-      finger_2_prox_joint:
-        p: 1000.0
-        i: 0.01
-        d: 10.0
+        i: 10.0
+        d: 50.0
       finger_1_dist_joint:
         p: 1000.0
-        i: 0.01
-        d: 10.0
+        i: 10.0
+        d: 50.0
       finger_2_dist_joint:
-        p: 100.0
-        i: 0.01
-        d: 10.0
+        p: 1000.0
+        i: 10.0
+        d: 50.0
       finger_3_dist_joint:
         p: 1000.0
-        i: 0.01
-        d: 10.0
-    state_publish_rate: 50.0
-    action_monitor_rate: 50.0
+        i: 10.0
+        d: 50.0
+      finger_1_prox_joint:
+        p: 1000.0
+        i: 10.0
+        d: 50.0
+      finger_2_prox_joint:
+        p: 1000.0
+        i: 10.0
+        d: 50.0
     constraints:
-      goal_time: 100.0                   # Override default
+      goal_time: 10.0                   # Override default
       finger_1_med_joint:
-        trajectory: 0.01
+        trajectory: -1.0
       finger_2_med_joint:
-        trajectory: 0.01
+        trajectory: -1.0
       finger_3_med_joint:
-        trajectory: 0.01
-      finger_1_prox_joint:
-        trajectory: 0.01
-      finger_2_prox_joint:
         trajectory: -1.0
       finger_1_dist_joint:
         trajectory: -1.0
       finger_2_dist_joint:
         trajectory: -1.0
       finger_3_dist_joint:
+        trajectory: -1.0
+      finger_1_prox_joint:
+        trajectory: -1.0
+      finger_2_prox_joint:
         trajectory: -1.0
 

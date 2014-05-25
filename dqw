@@ -1,0 +1,60 @@
+diff --git a/mitsubishi_barrett/mitsubishi_barrett_config/launch/move_group.launch b/mitsubishi_barrett/mitsubishi_barrett_config/launch/move_group.launch
+index d1fa42d..88dd795 100644
+--- a/mitsubishi_barrett/mitsubishi_barrett_config/launch/move_group.launch
++++ b/mitsubishi_barrett/mitsubishi_barrett_config/launch/move_group.launch
+@@ -1,4 +1,3 @@
+-<?xml version="1.0"?>
+ <launch>
+ 
+   <include file="$(find mitsubishi_barrett_config)/launch/planning_context.launch" />
+diff --git a/mitsubishi_barrett/mitsubishi_barrett_config/launch/moveit.rviz b/mitsubishi_barrett/mitsubishi_barrett_config/launch/moveit.rviz
+index 1ce0422..52c26ce 100644
+--- a/mitsubishi_barrett/mitsubishi_barrett_config/launch/moveit.rviz
++++ b/mitsubishi_barrett/mitsubishi_barrett_config/launch/moveit.rviz
+@@ -6,10 +6,9 @@ Panels:
+       Expanded:
+         - /MotionPlanning1
+         - /MotionPlanning1/Scene Robot1
+-        - /MotionPlanning1/Planning Request1
+         - /MotionPlanning1/Planned Path1
+       Splitter Ratio: 0.74256
+-    Tree Height: 119
++    Tree Height: 131
+   - Class: rviz/Help
+     Name: Help
+   - Class: rviz/Views
+@@ -180,7 +179,7 @@ Visualization Manager:
+         Goal State Color: 250; 128; 0
+         Interactive Marker Size: 0
+         Joint Violation Color: 255; 0; 255
+-        Planning Group: hand
++        Planning Group: arm
+         Query Goal State: true
+         Query Start State: false
+         Show Workspace: false
+@@ -341,10 +340,10 @@ Visualization Manager:
+         Z: 2.23518e-07
+       Name: Current View
+       Near Clip Distance: 0.01
+-      Pitch: 0.704797
++      Pitch: 0.529797
+       Target Frame: world
+       Value: XYOrbit (rviz)
+-      Yaw: 0.176765
++      Yaw: 4.70995
+     Saved: ~
+ Window Geometry:
+   Displays:
+@@ -356,9 +355,9 @@ Window Geometry:
+   Hide Right Dock: false
+   Motion Planning:
+     collapsed: false
+-  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000002a2fc0200000005fb000000100044006900730070006c00610079007301000000280000010c000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e0067010000013a000001900000017400ffffff0000026d000002a200000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
++  QMainWindow State: 000000ff00000000fd0000000100000000000002a2000002a2fc0200000005fb000000100044006900730070006c006100790073010000002800000118000000dd00fffffffb0000000800480065006c00700000000342000000bb0000007600fffffffb0000000a0056006900650077007300000003b0000000b0000000b000fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000146000001840000017400ffffff0000026d000002a200000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+   Views:
+     collapsed: false
+   Width: 1301
+-  X: 65
+-  Y: 24
++  X: 57
++  Y: -4

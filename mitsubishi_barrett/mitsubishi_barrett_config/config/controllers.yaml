@@ -18,6 +18,9 @@ controller_list:
       - finger_1_med_joint
       - finger_2_med_joint
       - finger_3_med_joint
+      - finger_1_dist_joint
+      - finger_2_dist_joint
+      - finger_3_dist_joint
       - finger_1_prox_joint
       - finger_2_prox_joint
 

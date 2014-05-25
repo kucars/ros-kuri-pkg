@@ -1,5 +1,6 @@
+<?xml version="1.0"?>
 <launch>
-
+  <arg name="simulation" default="true" />
   <!-- By default, we do not start a database (it can be large) -->
   <arg name="db" default="false" />
 
@@ -19,6 +20,7 @@
     <arg name="fake_execution" value="false"/>
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
+    <arg name="simulation" value="$(arg simulation)" />
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
