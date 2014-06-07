@@ -1,15 +1,12 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 84
+    Help Height: 0
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /MotionPlanning1
-        - /MotionPlanning1/Scene Robot1
-        - /MotionPlanning1/Planning Request1
-        - /MotionPlanning1/Planned Path1
+        - /TF1
       Splitter Ratio: 0.74256
-    Tree Height: 119
+    Tree Height: 203
   - Class: rviz/Help
     Name: Help
   - Class: rviz/Views
@@ -131,6 +128,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          palm_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           shoulder:
             Alpha: 1
             Show Axes: false
@@ -281,6 +282,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          palm_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           shoulder:
             Alpha: 1
             Show Axes: false
@@ -314,6 +319,28 @@ Visualization Manager:
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
+    - Class: rviz/TF
+      Enabled: false
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        {}
+      Update Interval: 0
+      Value: false
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: visualization_marker
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -329,22 +356,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 2.9965
+      Distance: 3.15415
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.113567
-        Y: 0.10592
-        Z: 2.23518e-07
+        X: -0.398384
+        Y: 0.104139
+        Z: 1.23898e-06
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.704797
+      Pitch: 0.294796
       Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 0.176765
+      Yaw: 6.15996
     Saved: ~
 Window Geometry:
   Displays:
@@ -360,5 +387,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1301
-  X: 65
+  X: 58
   Y: 24

@@ -21,7 +21,7 @@ planner_configs:
     type: geometric::PRM
   PRMstarkConfigDefault:
     type: geometric::PRMstar
-hand:
+arm:
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -34,7 +34,7 @@ hand:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
-arm:
+hand:
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault

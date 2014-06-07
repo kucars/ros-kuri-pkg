@@ -1,4 +1,6 @@
+<?xml version="1.0"?>
 <launch>
+  <arg name="simulation" default="true" />
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
   <arg name="load_robot_description" default="false"/>
 
@@ -13,7 +15,12 @@
   
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">
+   <group if="$(arg simulation)">
+    <rosparam command="load" file="$(find mitsubishi_barrett_config)/config/joint_limits_gazebo.yaml"/>
+   </group>
+   <group unless="$(arg simulation)">
     <rosparam command="load" file="$(find mitsubishi_barrett_config)/config/joint_limits.yaml"/>
+   </group>
   </group>
 
   <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
