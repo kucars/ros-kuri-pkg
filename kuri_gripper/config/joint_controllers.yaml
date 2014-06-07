@@ -1,0 +1,51 @@
+left_dist_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: dist_joint
+    joint_speed: 0.1
+    motor:
+        id: 2
+        init: 512
+        min: 0
+        max: 1023
+
+left_med_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint
+    joint_speed: 0.1
+    motor:
+        id: 6
+        init: 512
+        min: 0
+        max: 1023
+
+right_dist_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: dist_joint
+    joint_speed: 0.1
+    motor:
+        id: 5
+        init: 512
+        min: 0
+        max: 1023
+
+right_med_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint
+    joint_speed: 0.1
+    motor:
+        id: 7
+        init: 512
+        min: 0
+        max: 1023

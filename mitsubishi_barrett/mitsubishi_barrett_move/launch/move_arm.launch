@@ -17,7 +17,14 @@
     <arg name="simulation" value="$(arg simulation)"/> 
   </include>
   <!-- Load mitsubishi and barrett controllers -->
-  <include file="$(find mitsubishi_barrett_control)/launch/mitsubishi_barrett_control.launch" />
+
+
+  <!-- Load mitsubishi arm controllers -->
+  <include file="$(find mitsubishi_barrett_control)/launch/mitsubishi_barrett_control.launch">
+    <arg name="simulation" value="$(arg simulation)" />
+  </include>
+
+
 
   <node name="static_environment" pkg="mitsubishi_arm_move" type="static_environment" />
 
