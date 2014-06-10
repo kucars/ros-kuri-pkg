@@ -45,6 +45,16 @@
         <joint name="finger_3_dist_joint" value="0" />
         <joint name="finger_3_med_joint" value="0" />
     </group_state>
+    <group_state name="power_grasp" group="hand">
+        <joint name="finger_1_dist_joint" value="1.085" />
+        <joint name="finger_1_med_joint" value="2.44" />
+        <joint name="finger_1_prox_joint" value="0" />
+        <joint name="finger_2_dist_joint" value="0" />
+        <joint name="finger_2_med_joint" value="2.44" />
+        <joint name="finger_2_prox_joint" value="0" />
+        <joint name="finger_3_dist_joint" value="1.085" />
+        <joint name="finger_3_med_joint" value="2.44" />
+    </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="barrett_base_link" link2="camera_link" reason="Never" />
     <disable_collisions link1="barrett_base_link" link2="elbow" reason="Never" />
