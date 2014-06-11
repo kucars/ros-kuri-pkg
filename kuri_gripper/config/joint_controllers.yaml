@@ -32,7 +32,7 @@ right_dist_controller:
     joint_name: dist_joint
     joint_speed: 0.1
     motor:
-        id: 5
+        id: 1
         init: 512
         min: 0
         max: 1023
