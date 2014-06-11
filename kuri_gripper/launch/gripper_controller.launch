@@ -1,4 +1,17 @@
 <launch>
+    <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" required="true" output="screen">
+        <rosparam>
+            namespace: dxl_manager
+            serial_ports:
+                pan_tilt_port:
+                    port_name: "/dev/ttyUSB2"
+                    baud_rate: 1000000
+                    min_motor_id: 1
+                    max_motor_id: 7
+                    update_rate: 20
+        </rosparam>
+    </node>
+
     <!-- Start tilt joint controller -->
     <rosparam file="$(find kuri_gripper)/config/joint_controllers.yaml" command="load"/>
     <node name="tilt_controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
@@ -6,4 +19,6 @@
                 --port pan_tilt_port
                 left_dist_controller left_med_controller right_dist_controller right_med_controller"
           output="screen"/>
+    <node name="kuri_gripper" pkg="kuri_gripper" type="kuri_gripper" required="true" output="screen"/>
+
 </launch>

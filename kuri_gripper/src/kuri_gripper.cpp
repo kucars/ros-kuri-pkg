@@ -10,9 +10,9 @@ class GripperController
                std_srvs::Empty::Response &res)
     {
         std_msgs::Float64 left_dist_close, left_med_close, right_dist_close, right_med_close;
-        left_dist_close.data=-1.5;
+        left_dist_close.data=1.5;
         left_med_close.data=0.0;
-        right_dist_close.data=1.5;
+        right_dist_close.data=-1.5;
         right_med_close.data=0.0;
 
         left_dist.publish(left_dist_close);
@@ -30,9 +30,9 @@ class GripperController
         std_msgs::Float64 left_dist_open, left_med_open, right_dist_open, right_med_open;
 
         left_dist_open.data=0.0;
-        left_med_open.data=1.0;
+        left_med_open.data=-1.0;
         right_dist_open.data=0.0;
-        right_med_open.data=-1.0;
+        right_med_open.data=1.0;
 
         left_dist.publish(left_dist_open);
         left_med.publish(left_med_open);
